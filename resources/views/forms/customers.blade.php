@@ -3,6 +3,8 @@
 <main>
 
     <h4>نرم افزار های درخواستی</h4>
+    <form method="POST" action="">
+        @csrf
     <table>
         <tr>
             <th>نام مشتری</th>
@@ -18,9 +20,12 @@
                             <td>{{$staff['name']}}</td>
                         @endif
                     @endforeach
+                <td><button type="submit" name="delete" value="{{$item['id']}}" class="btn btn-danger">Delete</button></td>
             </tr>
         @endforeach
     </table>
+    </form>
+
 </main>
 
 @endsection

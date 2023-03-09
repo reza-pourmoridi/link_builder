@@ -35,6 +35,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/customers', 'selectAppController@create');
 
+Route::get('/admin/customers/delete', 'selectAppController@destroy');
+
 
 Route::get('/admin/customer/{id}', 'CustomerController@show')->name('customer.show');
 Route::put('/admin/customer/{id}', 'CustomerController@update')->name('customer.update');
