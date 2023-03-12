@@ -16,18 +16,24 @@
             </div>
             <input value="ذخیره اطلاعات" type="submit">
         </form>
-        <table>
-            <tr>
-                <th>عنوان</th>
-                <th>لینک</th>
-            </tr>
-            @foreach($result['demo'] as $item)
+        <form method="POST" action="staff/delete">
+            @csrf
+            <table>
                 <tr>
-                    <td>{{$item['title']}}</td>
-                    <td>{{$item['link']}}</td>
+                    <th>عنوان</th>
+                    <th>لینک</th>
+                    <th>حذف</th>
                 </tr>
-            @endforeach
-        </table>
+                @foreach($result['demo'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['link']}}</td>
+                        <td><button type="submit" name="demo_link_delete" value="{{$item['id']}}" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                @endforeach
+            </table>
+        </form>
+
     </div>
     <div class="main-dive">
         <form method="post"  >

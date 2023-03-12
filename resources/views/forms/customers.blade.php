@@ -3,7 +3,7 @@
 <main>
 
     <h4>نرم افزار های درخواستی</h4>
-    <form method="POST" action="">
+    <form method="POST" action="customers/delete">
         @csrf
     <table>
         <tr>
@@ -12,7 +12,7 @@
             <th>کارشناس</th>
         </tr>
         @foreach($result['customer'] as $item)
-            <tr 5>
+            <tr>
                 <td> <a href="/admin/customer/{{$item['id']}}"> {{$item['name']}} </a></td>
                     <td>{{$item['company']}}</td>
                     @foreach($result['staff'] as $staff)

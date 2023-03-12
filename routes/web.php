@@ -26,18 +26,11 @@ Route::get('/crop', function () {
 Route::resource('/admin/staff','StaffController');
 
 Route::resource('/admin/select_app' , 'selectAppController');
+Route::get('/admin/customers', 'selectAppController@create');
+Route::post('/admin/customers/delete', 'selectAppController@destroy');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-Route::get('/admin/customers', 'selectAppController@create');
-
-Route::get('/admin/customers/delete', 'selectAppController@destroy');
-
-
 Route::get('/admin/customer/{id}', 'CustomerController@show')->name('customer.show');
 Route::put('/admin/customer/{id}', 'CustomerController@update')->name('customer.update');
 

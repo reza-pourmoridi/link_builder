@@ -56,7 +56,6 @@ class selectAppController extends Controller
  */
     public function create()
     {
-
         $customer = customer::all();
         $staff = staff::all();
 
@@ -169,9 +168,8 @@ class selectAppController extends Controller
  */
     public function destroy(Request $request)
     {
-        dd($request);
-        $record = customer::findOrFail($id);
+        $record = customer::findOrFail($request['delete']);
         $record->delete();
-        return redirect()->route('records.index')->with('success', 'Record has been deleted successfully.');
+        return redirect('/admin/customers');
     }
 }
