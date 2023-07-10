@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/customer/{id}', 'CustomerController@show')->name('customer.show');
 Route::put('/admin/customer/{id}', 'CustomerController@update')->name('customer.update');
 
+Route::get('/customer/{id}', 'CustomerViewController@show')->name('customer.show');
 
 
 

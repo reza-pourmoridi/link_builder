@@ -15,7 +15,7 @@ class Helpers {
         foreach ($model as $work) {
             foreach ($types as $item) {
                 if (strpos($work['kind'], $item['slug']) !== false) {
-                    $model[$i]['kind_titles'] .= '   ' . $item['title'] . ' ';
+                    $model[$i]['kind_titles'] .= '   ' . $item['title'] . ' , ';
                 }
             }
             $i++;

@@ -1,5 +1,6 @@
 @extends('admin.layouts.layout')
 @section('content')
+{{--    @dd($result)--}}
 
 <main>
     <h2>تغییر اطلاعات مشتری</h2>
@@ -135,6 +136,23 @@
                     <td>{{$item['title']}}</td>
                     <td>{{$item['logo']}}</td>
                     <td><input  @if(in_array($item['id'],$result['chosen_accountants'])) checked @endif   type="checkbox" id="" name="accountants_check[]" value="{{$item['id']}}"></td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+    <div class="faq">
+        <h4>سوالات متداول</h4>
+        <table>
+            <tr>
+                <th>سوال</th>
+                <th>جواب</th>
+                <th>انتخاب</th>
+            </tr>
+            @foreach($result['faq'] as $item)
+                <tr>
+                    <td>{{$item['quastion']}}</td>
+                    <td>{{$item['answear']}}</td>
+                    <td><input  @if(in_array($item['id'],$result['chosen_faq'])) checked @endif type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
                 </tr>
             @endforeach
         </table>

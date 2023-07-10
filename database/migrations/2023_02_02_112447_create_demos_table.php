@@ -17,6 +17,7 @@ class CreateDemosTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('link');
+            $table->string('logo');
         });
     }
 

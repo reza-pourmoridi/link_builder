@@ -34,6 +34,7 @@ class StaffController extends Controller
         $demo = demo::all();
         $programs = programs::all();
         $pricesModel = pricesModel::all();
+        $pricesModel = Helpers::change_site_types($pricesModel,$types);
 
         $result=[
             'types'=>$types ,
@@ -129,11 +130,17 @@ class StaffController extends Controller
         $request-> validate([
             'price_title'=>'required',
             'price_link'=>'required',
+            'price_kind'=>'required',
         ]);
+        $type = '';
+        foreach ($request['price_kind'] as $key => $value){
+            $type .= $value."|";
+        }
 
         $pricesModel = new pricesModel([
             'title' => $request->get('price_title'),
             'link' => $request->get('price_link'),
+            'kind' => $type,
         ]);
 
         $pricesModel->save();
@@ -143,15 +150,20 @@ class StaffController extends Controller
         $request-> validate([
             'demo_title'=>'required',
             'demo_link'=>'required',
+            'demo_logo'=>'required',
         ]);
 
-        $pricesModel = new demo([
-            'title' => $request->get('demo_title'),
-            'link' => $request->get('demo_link'),
-        ]);
+        $pricesModel = new demo();
+
+        $imageName = $this->insert_pic('demo_logo');
+        $pricesModel->logo = $imageName;
+        $pricesModel->title = $request->get('demo_title');
+        $pricesModel->link = $request->get('demo_link');
 
         $pricesModel->save();
+
     }
+
     public function store_programs($request)
     {
         $request-> validate([
@@ -195,11 +207,15 @@ class StaffController extends Controller
             $kind .= $value."|";
         }
 
-            $pricesModel = new works([
+        $imageName = $this->insert_pic('work_logo');
+
+        $pricesModel = new works([
             'title' => $request->get('work_title'),
             'link' => $request->get('work_link'),
+            'pic' => $imageName,
             'kind' => $kind,
         ]);
+
 
         $pricesModel->save();
     }
@@ -224,6 +240,14 @@ class StaffController extends Controller
 
 
             $pricesModel->save();
+    }
+
+    public function insert_pic( $field )
+    {
+        global $request;
+        $imageName = time().'.'.$request->$field->extension();
+        $request->$field->move(public_path('images'), $imageName);
+        return $imageName;
     }
 
 }

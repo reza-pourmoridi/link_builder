@@ -121,6 +121,13 @@ class selectAppController extends Controller
             $chosen_item->items_id = json_encode($request->get('demo_check'));
             $chosen_item->save();
         }
+        if ($request->get('faq_check')){
+            $chosen_item = new chosen_item();
+            $chosen_item->item_model = 'faq';
+            $chosen_item->customer_id = $customerModel->id;
+            $chosen_item->items_id = json_encode($request->get('faq_check'));
+            $chosen_item->save();
+        }
         if ($request->get('accountants_check')){
             $chosen_item = new chosen_item();
             $chosen_item->item_model = 'accountants';

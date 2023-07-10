@@ -82,6 +82,16 @@ class CustomerController extends Controller
             $chosen_accountants = array();
         }
 
+        $chosen_faq = chosen_item::where('customer_id', $customer->id)
+            ->where('item_model', 'faq')
+            ->get();
+        if (isset($chosen_faq[0]) && json_decode($chosen_faq[0]->items_id) ){
+            $chosen_faq = json_decode($chosen_faq[0]->items_id);
+        } else {
+            $chosen_faq = array();
+        }
+
+//        dd($faq);
 
         $result = [
             'customer'=>$customer,
@@ -91,6 +101,7 @@ class CustomerController extends Controller
             'works'=>$works ,
             'chosen_works'=> $chosen_works ,
             'faq'=>$faq ,
+            'chosen_faq'=>$chosen_faq ,
             'demo'=>$demo ,
             'chosen_demo'=>$chosen_demo ,
             'programs'=>$programs ,
@@ -181,10 +192,25 @@ class CustomerController extends Controller
             $chosen_item->items_id = json_encode($request->get('accountants_check'));
             $chosen_item->save();
 
+            $chosen_item = new chosen_item();
+            $chosen_item
+                ->where('item_model', '=', 'faq')
+                ->where('customer_id', '=', $id)
+                ->delete();
+            $chosen_item->item_model = 'faq';
+            $chosen_item->customer_id = $id;
+            $chosen_item->items_id = json_encode($request->get('faq_check'));
+            $chosen_item->save();
+
 
 
 
         return redirect('/admin/customer/'.$id);
 
+    }
+
+    public function test()
+    {
+        return view('test');
     }
 }

@@ -32,11 +32,13 @@ class CreateStaffTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('link');
+            $table->string('kind');
         });
         Schema::create('works_tb', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('link');
+            $table->string('pic');
             $table->string('kind');
         });
         Schema::create('faq_tb', function (Blueprint $table) {
