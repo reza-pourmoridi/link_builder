@@ -13,17 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('form');
-});
+//Route::get('/', function () {
+//    return view('form');
+//});
 
-Route::get('/crop', function () {
-    return view('crop');
-});
+//Route::get('/crop', function () {
+//    return view('crop');
+//});
 
 
 
 Route::resource('/admin/staff','StaffController');
+
+Route::get('/admin/staff/demo/{staffId}', 'StaffController@destroyDemo')->name('staff.demo.destroy');
+Route::get('/admin/staff/programs/{programsId}', 'StaffController@destroyPrograms')->name('staff.programs.destroy');
+Route::get('/admin/staff/pricesModel/{pricesModelId}', 'StaffController@destroyPricesModel')->name('staff.pricesModel.destroy');
+Route::get('/admin/staff/works/{worksId}', 'StaffController@destroyWorks')->name('staff.works.destroy');
+Route::get('/admin/staff/faq/{faqId}', 'StaffController@destroyFaq')->name('staff.faq.destroy');
+Route::get('/admin/staff/accountant/{faqId}', 'StaffController@destroyAccountants')->name('staff.accountant.destroy');
+
 
 Route::resource('/admin/select_app' , 'selectAppController');
 Route::get('/admin/customers', 'selectAppController@create');
@@ -31,7 +39,7 @@ Route::post('/admin/customers/delete', 'selectAppController@destroy');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/customer/{id}', 'CustomerController@show')->name('customer.show');
+Route::get('/admin/customer/{id}', 'CustomerController@show')->name('admin.customer.show');
 Route::put('/admin/customer/{id}', 'CustomerController@update')->name('customer.update');
 
 Route::get('/customer/{id}', 'CustomerViewController@show')->name('customer.show');

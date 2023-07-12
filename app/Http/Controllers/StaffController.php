@@ -117,12 +117,48 @@ class StaffController extends Controller
     }    /**
  * Remove the specified resource from storage.
  *
- * @param  int  $id
+ * @param int $id
  * @return \Illuminate\Http\Response
  */
-    public function destroy($id)
+    public function destroy(int $id): \Illuminate\Http\Response
     {
         //
+    }
+
+    public function destroyDemo(int $id)
+    {
+        demo::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyPrograms(int $id)
+    {
+        programs::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyPricesModel(int $id)
+    {
+        pricesModel::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyWorks(int $id)
+    {
+        works::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyFaq(int $id)
+    {
+        faq::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyAccountants(int $id)
+    {
+        accountant::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
     }
 
     public function store_prices($request)
@@ -163,7 +199,6 @@ class StaffController extends Controller
         $pricesModel->save();
 
     }
-
     public function store_programs($request)
     {
         $request-> validate([

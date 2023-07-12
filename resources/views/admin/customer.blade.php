@@ -158,6 +158,7 @@
         </table>
     </div>
 
+        <a target="_blank" href="/customer/{{ $result['customer']->id }}" type="submit">پیش نمایش</a>
         <button type="submit">Save Changes</button>
     </form>
 
