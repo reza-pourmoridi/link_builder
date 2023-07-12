@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return response()->json(
-        [
-            "message" => "GET method success",
-        ]
-    );
-});
+//Route::get('/user', function (Request $request) {
+//    return response()->json(
+//        [
+//            "message" => "GET method success",
+//        ]
+//    );
+//});
 
 //Route::middleware('auth:api')->get('/user2', function (Request $request) {
 //    return response()->json(
@@ -31,6 +31,6 @@ Route::get('/user', function (Request $request) {
 //});
 
 
-Route::get('page/{id}', 'LinksPageController@getById');
+//Route::get('page/{id}', 'LinksPageController@getById');
 
 

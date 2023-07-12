@@ -34,6 +34,7 @@ class StaffController extends Controller
         $demo = demo::all();
         $programs = programs::all();
         $pricesModel = pricesModel::all();
+        $pricesModel = Helpers::change_site_types($pricesModel,$types);
 
         $result=[
             'types'=>$types ,
@@ -116,12 +117,48 @@ class StaffController extends Controller
     }    /**
  * Remove the specified resource from storage.
  *
- * @param  int  $id
+ * @param int $id
  * @return \Illuminate\Http\Response
  */
-    public function destroy($id)
+    public function destroy(int $id): \Illuminate\Http\Response
     {
         //
+    }
+
+    public function destroyDemo(int $id)
+    {
+        demo::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyPrograms(int $id)
+    {
+        programs::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyPricesModel(int $id)
+    {
+        pricesModel::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyWorks(int $id)
+    {
+        works::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyFaq(int $id)
+    {
+        faq::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+
+    public function destroyAccountants(int $id)
+    {
+        accountant::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
     }
 
     public function store_prices($request)
@@ -129,11 +166,17 @@ class StaffController extends Controller
         $request-> validate([
             'price_title'=>'required',
             'price_link'=>'required',
+            'price_kind'=>'required',
         ]);
+        $type = '';
+        foreach ($request['price_kind'] as $key => $value){
+            $type .= $value."|";
+        }
 
         $pricesModel = new pricesModel([
             'title' => $request->get('price_title'),
             'link' => $request->get('price_link'),
+            'kind' => $type,
         ]);
 
         $pricesModel->save();
@@ -143,14 +186,18 @@ class StaffController extends Controller
         $request-> validate([
             'demo_title'=>'required',
             'demo_link'=>'required',
+            'demo_logo'=>'required',
         ]);
 
-        $pricesModel = new demo([
-            'title' => $request->get('demo_title'),
-            'link' => $request->get('demo_link'),
-        ]);
+        $pricesModel = new demo();
+
+        $imageName = $this->insert_pic('demo_logo');
+        $pricesModel->logo = $imageName;
+        $pricesModel->title = $request->get('demo_title');
+        $pricesModel->link = $request->get('demo_link');
 
         $pricesModel->save();
+
     }
     public function store_programs($request)
     {
@@ -195,11 +242,15 @@ class StaffController extends Controller
             $kind .= $value."|";
         }
 
-            $pricesModel = new works([
+        $imageName = $this->insert_pic('work_logo');
+
+        $pricesModel = new works([
             'title' => $request->get('work_title'),
             'link' => $request->get('work_link'),
+            'pic' => $imageName,
             'kind' => $kind,
         ]);
+
 
         $pricesModel->save();
     }
@@ -224,6 +275,14 @@ class StaffController extends Controller
 
 
             $pricesModel->save();
+    }
+
+    public function insert_pic( $field )
+    {
+        global $request;
+        $imageName = time().'.'.$request->$field->extension();
+        $request->$field->move(public_path('images'), $imageName);
+        return $imageName;
     }
 
 }

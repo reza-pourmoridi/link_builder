@@ -133,6 +133,23 @@
                     @endforeach
                 </table>
             </div>
+            <div class="faq">
+                <h4>سوالات متداول</h4>
+                <table>
+                    <tr>
+                        <th>سوال</th>
+                        <th>پاسخ</th>
+                        <th>انتخاب</th>
+                    </tr>
+                    @foreach($result['faq'] as $item)
+                        <tr>
+                            <td>{{$item['quastion']}}</td>
+                            <td>{{$item['answear']}}</td>
+                            <td><input type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
         </section>
         <div class="submit-form">
             <input type="submit" value="Submit">

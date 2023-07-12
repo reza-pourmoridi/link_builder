@@ -2,7 +2,7 @@
 @section('content')
 <main class="multi-forms">
     <div class="main-dive">
-        <form method="post"  >
+        <form  enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>دمو</h1>
             <div>
@@ -14,21 +14,27 @@
                 <input type="text"  value="" name="demo_link" id="">
                 <br>
             </div>
+            <div>
+                <lable>لوگو</lable>
+                <input class="images-input" id="demo_logo" accept="image/*" type="file" name="demo_logo" value="">
+            </div>
             <input value="ذخیره اطلاعات" type="submit">
         </form>
-        <form method="POST" action="staff/delete">
+        <form method="POST" >
             @csrf
             <table>
                 <tr>
                     <th>عنوان</th>
                     <th>لینک</th>
+                    <th>لوگو</th>
                     <th>حذف</th>
                 </tr>
                 @foreach($result['demo'] as $item)
                     <tr>
                         <td>{{$item['title']}}</td>
                         <td>{{$item['link']}}</td>
-                        <td><button type="submit" name="demo_link_delete" value="{{$item['id']}}" class="btn btn-danger">Delete</button></td>
+                        <td><img src="{{asset('images/'.$item['logo'])}}"></td>
+                        <td><a  href="staff/demo/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
                     </tr>
                 @endforeach
             </table>
@@ -54,11 +60,13 @@
             <tr>
                 <th>عنوان</th>
                 <th>لینک</th>
+                <th>حذف</th>
             </tr>
             @foreach($result['programs'] as $item)
                 <tr>
                     <td>{{$item['title']}}</td>
                     <td>{{$item['link']}}</td>
+                    <td><a  href="staff/programs/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
         </table>
@@ -75,6 +83,13 @@
                 <lable>لینک</lable>
                 <input type="text"  value="" name="price_link" id="">
             </div>
+            <h3>نوع</h3>
+            <div>
+                @foreach($result['types'] as $item)
+                    <lable>{{$item['title']}}</lable>
+                    <input type="checkbox" value="{{$item['slug']}}" name="price_kind[]" id="">
+                @endforeach
+            </div>
             <br>
             <input value="ذخیره اطلاعات" type="submit">
         </form>
@@ -82,17 +97,21 @@
             <tr>
                 <th>عنوان</th>
                 <th>لینک</th>
+                <th>نوع</th>
+                <th>حذف</th>
             </tr>
             @foreach($result['pricesModel'] as $item)
                 <tr>
                     <td>{{$item['title']}}</td>
                     <td>{{$item['link']}}</td>
+                    <td>{{$item['kind_titles']}}</td>
+                    <td><a  href="staff/pricesModel/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
         </table>
     </div>
     <div class="main-dive">
-        <form method="post"  >
+        <form enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>نمونه کار</h1>
             <div>
@@ -102,6 +121,10 @@
             <div>
                 <lable>لینک</lable>
                 <input type="text"  value="" name="work_link" id="">
+            </div>
+            <div>
+                <lable>عکس</lable>
+                <input class="images-input" id="work_logo" accept="image/*" type="file" name="work_logo" value="">
             </div>
             <h3>نوع</h3>
             <div>
@@ -117,13 +140,18 @@
             <tr>
                 <th>عنوان</th>
                 <th>لینک</th>
+                <th>عکس</th>
                 <th>نوع</th>
+                <th>حذف</th>
             </tr>
             @foreach($result['works'] as $item)
                 <tr>
                     <td>{{$item['title']}}</td>
                     <td>{{$item['link']}}</td>
+                    <td><img src="{{asset('images/'.$item['pic'])}}"></td>
                     <td>{{$item['kind_titles']}}</td>
+                    <td><a  href="staff/works/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
+
                 </tr>
             @endforeach
         </table>
@@ -152,12 +180,15 @@
                 <th>سوال</th>
                 <th>جواب</th>
                 <th>نوع</th>
+                <th>حذف</th>
             </tr>
             @foreach($result['faq'] as $item)
                 <tr>
                     <td>{{$item['quastion']}}</td>
                     <td>{{$item['answear']}}</td>
                     <td>{{$item['kind_titles']}}</td>
+                    <td><a  href="staff/faq/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
+
                 </tr>
             @endforeach
         </table>
@@ -182,11 +213,14 @@
             <tr>
                 <th>عنوان</th>
                 <th>لوگو</th>
+                <th>حذف</th>
             </tr>
             @foreach($result['accountants'] as $item)
                 <tr>
-                    <td>{{$item['title']}}
+                    <td>{{$item['title']}}</td>
                     <td><img src="{{asset('images/'.$item['logo'])}}"></td>
+                    <td><a  href="staff/accountant/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
+
                 </tr>
             @endforeach
         </table>

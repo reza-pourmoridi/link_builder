@@ -8,7 +8,7 @@ class pricesModel extends Model
 {
     protected $table = 'prices_tb';
     protected $fillable = [
-        'title', 'link'
+        'title', 'link', 'kind'
     ];
     const UPDATED_AT = null;
     const CREATED_AT = null;
