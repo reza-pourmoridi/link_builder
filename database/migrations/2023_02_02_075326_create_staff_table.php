@@ -17,6 +17,8 @@ class CreateStaffTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
+            $table->string('description');
+            $table->string('pic');
             $table->string('photo');
             $table->string('email');
             $table->string('instagram');
