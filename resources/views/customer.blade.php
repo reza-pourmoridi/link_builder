@@ -24,9 +24,9 @@
             <div class="parent-header">
                 <div class="logo_iran-tech">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="200px" height="50px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 282 64" xmlns:xlink="http://www.w3.org/1999/xlink">
-         <defs>
+                     <defs>
 
-         </defs>
+                     </defs>
                         <g id="Layer_x0020_1">
                             <metadata id="CorelCorpID_0Corel-Layer"/>
                             <polygon class="fil0" points="176.19,38.58 171.37,38.58 171.37,53.65 176.19,53.65 "/>
@@ -487,24 +487,25 @@
             </div>
         </div>
     </section>
-    <div class="title">
-        <div class="container">
-            <h2>تامین کننده ها</h2>
-        </div>
-    </div>
-    <div class="title-desktop">
-        <div class="container">
-            <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>تامین کننده ها</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+    @if($result['customer']->providers == 1)
+        <div class="title">
+            <div class="container">
+                <h2>تامین کننده ها</h2>
             </div>
         </div>
-    </div>
-    <section class="suppliers">
+        <div class="title-desktop">
+            <div class="container">
+                <div class="title-Internal d-flex align-items-center justify-content-between ">
+                    <h5>تامین کننده ها</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <section class="suppliers">
         <div class="container">
             <div class="owl-carousel owl-theme owl-suppliers">
                 <div class="item">
@@ -610,6 +611,7 @@
             </div>
         </div>
     </section>
+    @endif;
     <div class="title">
         <div class="container">
             <h2>مزایا ایران تکنولوژی</h2>
@@ -820,8 +822,8 @@
         </div>
     </section>
     @endif
-    @if($result['works'])
-    <div class="title">
+    @if($result['chosen_works'])
+        <div class="title">
         <div class="container">
             <h2>نمونه کارهای طراحی وب سایت</h2>
         </div>
@@ -866,7 +868,7 @@
         </div>
     </section>
     @endif
-    @if($result['accountants'])
+    @if($result['chosen_accountants'])
     <div class="title">
         <div class="container">
             <h2>نمونه کارهای اتوماسیون و حسابداری</h2>
@@ -906,7 +908,7 @@
         </div>
     </section>
     @endif
-    @if($result['pricesModel'])
+    @if($result['chosen_pricesModel'])
         <div class="title">
             <div class="container">
                 <h2>لیست قیمت</h2>
@@ -1114,6 +1116,7 @@
             </div>
         </div>
     </section>
+    @if($result['chosen_faq'])
     <div class="title">
         <div class="container">
             <h2>سوالات متداول</h2>
@@ -1131,7 +1134,6 @@
             </div>
         </div>
     </div>
-    @if($result['faq'])
     <section class="questions">
         <div class="container">
             <div class="parent-accordion">
