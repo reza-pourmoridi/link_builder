@@ -49,6 +49,11 @@ class CreateStaffTable extends Migration
             $table->string('answear');
             $table->string('kind');
         });
+        Schema::create('advertisement_tb', function (Blueprint $table) {
+            $table->id();
+            $table->string('link');
+            $table->string('pic');
+        });
     }
 
     /**
