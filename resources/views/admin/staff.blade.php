@@ -197,6 +197,40 @@
     <div class="main-dive">
         <form enctype="multipart/form-data" method="post"  >
             @csrf
+            <h1>تبلیغات</h1>
+            <lable>عنوان</lable>
+            <input type="text"  value="" name="adds_title" id="">
+            <br>
+            <lable>لینک</lable>
+            <input type="text" value="" name="adds_link" id="">
+            <div>
+                <lable>لوگو</lable>
+                <input class="images-input" id="adds_pic" accept="image/*" type="file" name="adds_pic" value="">
+            </div>
+            <br>
+            <input value="ذخیره اطلاعات" type="submit">
+        </form>
+        <table>
+            <tr>
+                <th>عنوان</th>
+                <th>لینک</th>
+                <th>عکس</th>
+                <th>حذف</th>
+            </tr>
+            @foreach($result['adds'] as $item)
+                <tr>
+                    <td>{{$item['title']}}</td>
+                    <td>{{$item['link']}}</td>
+                    <td><img src="{{asset('images/'.$item['pic'])}}"></td>
+                    <td><a  href="staff/adds/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            @endforeach
+        </table>
+
+    </div>
+    <div class="main-dive">
+        <form enctype="multipart/form-data" method="post"  >
+            @csrf
             <h1>حسابداری </h1>
             <div>
                 <lable>عنوان</lable>

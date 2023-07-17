@@ -152,6 +152,24 @@
                 <tr>
                     <td>{{$item['quastion']}}</td>
                     <td>{{$item['answear']}}</td>
+                    <td>{{$item['answear']}}</td>
+                    <td><input  @if(in_array($item['id'],$result['chosen_adds'])) checked @endif type="checkbox" id="" name="adds_check[]" value="{{$item['id']}}"></td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+    <div class="faq">
+        <h4>تبلیغات</h4>
+        <table>
+            <tr>
+                <th>عنوان</th>
+                <th>لینک</th>
+                <th>عکس</th>
+            </tr>
+            @foreach($result['adds'] as $item)
+                <tr>
+                    <td>{{$item['title']}}</td>
+                    <td>{{$item['link']}}</td>
                     <td><input  @if(in_array($item['id'],$result['chosen_faq'])) checked @endif type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
                 </tr>
             @endforeach

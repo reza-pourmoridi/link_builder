@@ -294,13 +294,20 @@
             @endforeach;
         </div>
     </section>
-    <section class="baner-off">
-        <div class="container">
-            <div class="parent-img-baner-off">
-                <img src="{{ (asset('pic/5a.jpg')) }}" alt="baner-off">
-            </div>
-        </div>
-    </section>
+    @if($result['chosen_works'])
+        @foreach($result['adds'] as $item)
+            @if(in_array($item['id'],$result['chosen_faq']))
+            <section class="baner-off">
+                <div class="container">
+                    <div class="parent-img-baner-off">
+                        <img src="{{asset('images/'.$item['pic'])}}" alt="{{$item['title']}}">
+                    </div>
+                </div>
+            </section>
+            @endif;
+        @endforeach
+    @endif;
+
     <div class="title">
         <div class="container">
             <h2>معرفی نرم افزارها</h2>

@@ -51,6 +51,7 @@ class CreateStaffTable extends Migration
         });
         Schema::create('advertisement_tb', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('link');
             $table->string('pic');
         });
@@ -68,5 +69,6 @@ class CreateStaffTable extends Migration
         Schema::dropIfExists('prices_tb');
         Schema::dropIfExists('works_tb');
         Schema::dropIfExists('faq_tb');
+        Schema::dropIfExists('advertisement_tb');
     }
 }

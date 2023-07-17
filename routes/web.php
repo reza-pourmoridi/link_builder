@@ -24,12 +24,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('/admin/staff','StaffController');
+Route::resource('/admin/article','ArticlesController');
 
 Route::get('/admin/staff/demo/{staffId}', 'StaffController@destroyDemo')->name('staff.demo.destroy');
 Route::get('/admin/staff/programs/{programsId}', 'StaffController@destroyPrograms')->name('staff.programs.destroy');
 Route::get('/admin/staff/pricesModel/{pricesModelId}', 'StaffController@destroyPricesModel')->name('staff.pricesModel.destroy');
 Route::get('/admin/staff/works/{worksId}', 'StaffController@destroyWorks')->name('staff.works.destroy');
 Route::get('/admin/staff/faq/{faqId}', 'StaffController@destroyFaq')->name('staff.faq.destroy');
+Route::get('/admin/staff/adds/{addsId}', 'StaffController@destroyAdds')->name('staff.adds.destroy');
 Route::get('/admin/staff/accountant/{faqId}', 'StaffController@destroyAccountants')->name('staff.accountant.destroy');
 
 
