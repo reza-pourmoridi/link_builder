@@ -55,6 +55,12 @@ class CreateStaffTable extends Migration
             $table->string('link');
             $table->string('pic');
         });
+        Schema::create('login_admins', function (Blueprint $table) {
+            $table->id();
+            $table->string('user_name');
+            $table->string('password');
+            $table->string('role');
+        });
     }
 
     /**
@@ -70,5 +76,6 @@ class CreateStaffTable extends Migration
         Schema::dropIfExists('works_tb');
         Schema::dropIfExists('faq_tb');
         Schema::dropIfExists('advertisement_tb');
+        Schema::dropIfExists('login_admins');
     }
 }

@@ -113,6 +113,8 @@ class CustomerController extends Controller
                     'name' => $request->get('customer_name'),
                     'company' => $request->get('company_name'),
                     'providers' => $request->get('providers'),
+                    'benefits' => $request->get('benefits'),
+                    'honors' => $request->get('honors'),
                     'staff_id' => $request->get('staff_name'),
                 ]
             );

@@ -628,6 +628,7 @@
         </div>
     </section>
     @endif;
+    @if($result['customer']->benefits == 1)
     <div class="title">
         <div class="container">
             <h2>مزایا ایران تکنولوژی</h2>
@@ -801,6 +802,7 @@
             </div>
         </div>
     </section>
+    @endif
     <div class="title">
         <div class="container">
             <h2>دموی آنلاین</h2>
@@ -1177,6 +1179,7 @@
         </div>
     </section>
     @endif
+    @if($result['customer']->honors == 1)
     <div class="title">
         <div class="container">
             <h2>افتخارات ما</h2>
@@ -1285,6 +1288,7 @@
             </div>
         </div>
     </section>
+    @endif
     <footer class="footer-expert">
         <div class="container">
             <div class="parent-text-footer">

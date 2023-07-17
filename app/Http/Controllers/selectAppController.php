@@ -78,6 +78,8 @@ class selectAppController extends Controller
             'customer_name'=>'required',
             'company_name'=>'required',
             'providers'=>'required',
+            'benefits'=>'required',
+            'honors'=>'required',
             'staff_name'=>'required',
         ]);
 
@@ -89,6 +91,8 @@ class selectAppController extends Controller
         $customerModel->name = $request->get('customer_name');
         $customerModel->company = $request->get('company_name');
         $customerModel->providers = $request->get('providers');
+        $customerModel->benefits = $request->get('benefits');
+        $customerModel->honors = $request->get('honors');
         $customerModel->staff_id = $request->get('staff_name');
         $customerModel->save();
 

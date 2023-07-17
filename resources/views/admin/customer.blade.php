@@ -52,6 +52,26 @@
                 </select>
             </td>
         </tr>
+        <tr>
+            <td>نمایش مزایای ایران تکنولوژی:</td>
+            <td>
+                <select required style="width: 20%;"  id="benefits" name="benefits" value="">
+                    <option selected value="{{ $result['customer']->benefits }}">@if($result['customer']->benefits == 1)بله @else خیر @endif</option>
+                    <option value="0">خیر</option>
+                    <option value="1">بله</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>نمایش افتخارات ما:</td>
+            <td>
+                <select required style="width: 20%;"  id="honors" name="honors" value="">
+                    <option selected value="{{ $result['customer']->honors }}">@if($result['customer']->honors == 1)بله @else خیر @endif</option>
+                    <option value="0">خیر</option>
+                    <option value="1">بله</option>
+                </select>
+            </td>
+        </tr>
 
     </table>
     <div class="programs">

@@ -30,6 +30,22 @@
                     <option value="0">خیر</option>
                 </select>
             </div>
+            <div>
+                <label for="company_name">نمایش مزایای ایران تکنولوژی:</label><br>
+                <select required  id="benefits" name="benefits" value="">
+                    <option value="">انتخاب</option>
+                    <option value="1">بله</option>
+                    <option value="0">خیر</option>
+                </select>
+            </div>
+            <div>
+                <label for="company_name">نمایش افتخارات ما:</label><br>
+                <select required  id="honors" name="honors" value="">
+                    <option value="">انتخاب</option>
+                    <option value="1">بله</option>
+                    <option value="0">خیر</option>
+                </select>
+            </div>
             <br>
             <div>
                 <label for="staff_name">نام کارشناس:</label><br>

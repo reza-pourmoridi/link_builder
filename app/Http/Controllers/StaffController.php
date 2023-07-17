@@ -10,6 +10,7 @@ use App\works;
 use App\faq;
 use App\advertisement;
 use App\demo;
+use App\LoginAdmin;
 use App\site_types;
 use App\accountant;
 
@@ -311,5 +312,26 @@ class StaffController extends Controller
         $request->$field->move(public_path('images'), $imageName);
         return $imageName;
     }
+
+
+    public function showLoginForm()
+    {
+        return view('admin.login');
+    }
+
+    public function login(Request $request)
+    {
+        $AUTH_DETAIL = LoginAdmin::first();
+
+
+        if ($AUTH_DETAIL->user_name == $request->username && $AUTH_DETAIL->password == $request->password) {
+            // Assuming you have authenticated the user and verified their admin status
+            session(['isAdmin' => true]);
+            return redirect('/admin/staff');
+        } else {
+            return redirect()->back()->withInput()->withErrors(['login' => 'Invalid credentials']);
+        }
+    }
+
 
 }
