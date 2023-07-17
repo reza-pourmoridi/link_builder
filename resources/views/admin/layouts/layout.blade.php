@@ -10,7 +10,7 @@
         <li><a href="/admin/staff">اطلاعات پایه</a></li>
         <li><a href="/admin/select_app">فرم مشتری ها</a></li>
         <li><a href="/admin/customers">لیست مشتری ها</a></li>
-        <li><a href="/admin/article">مقالات</a></li>
+        <li><a href="/admin/articles">مقالات</a></li>
     </ul>
 </nav>
 </header>

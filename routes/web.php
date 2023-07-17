@@ -24,7 +24,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('/admin/staff','StaffController');
-Route::resource('/admin/article','ArticlesController');
+Route::resource('/admin/articles','ArticlesController');
+Route::get('/admin/articles/article/{articleId}', 'ArticlesController@destroyArticle')->name('articles.article.destroy');
+Route::get('/admin/articles/cat/{catId}', 'ArticlesController@destroyArticleCat')->name('articles.cat.destroy');
+
 
 Route::get('/admin/staff/demo/{staffId}', 'StaffController@destroyDemo')->name('staff.demo.destroy');
 Route::get('/admin/staff/programs/{programsId}', 'StaffController@destroyPrograms')->name('staff.programs.destroy');
