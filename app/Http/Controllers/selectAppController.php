@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\accountant;
 use App\demo;
 use App\faq;
+use App\advertisement;
 use App\Helpers;
 use App\pricesModel;
 use App\programs;
@@ -29,6 +30,8 @@ class selectAppController extends Controller
         $works = Helpers::change_site_types($works,$types);
         $faq = faq::all();
         $faq = Helpers::change_site_types($faq,$types);
+        $adds= advertisement::all();
+
 
         $demo = demo::all();
         $programs = programs::all();
@@ -41,6 +44,7 @@ class selectAppController extends Controller
             'types'=>$types ,
             'works'=>$works ,
             'faq'=>$faq ,
+            'adds'=>$adds ,
             'demo'=>$demo ,
             'programs'=>$programs ,
             'pricesModel'=>$pricesModel ,
@@ -130,6 +134,13 @@ class selectAppController extends Controller
             $chosen_item->item_model = 'faq';
             $chosen_item->customer_id = $customerModel->id;
             $chosen_item->items_id = json_encode($request->get('faq_check'));
+            $chosen_item->save();
+        }
+        if ($request->get('adds_check')){
+            $chosen_item = new chosen_item();
+            $chosen_item->item_model = 'advertisement';
+            $chosen_item->customer_id = $customerModel->id;
+            $chosen_item->items_id = json_encode($request->get('adds_check'));
             $chosen_item->save();
         }
         if ($request->get('accountants_check')){

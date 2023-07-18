@@ -59,6 +59,24 @@
         </section>
         <br>
         <section class="chose_detail">
+            <div class="adds">
+                <h4>تبلیغات</h4>
+                <table>
+                    <tr>
+                        <th>عنوان</th>
+                        <th>لینک</th>
+                        <th>عکس</th>
+                    </tr>
+                    @foreach($result['adds'] as $item)
+                        <tr>
+                            <td>{{$item['title']}}</td>
+                            <td>{{$item['link']}}</td>
+                            <td><input type="checkbox" id="" name="adds_check[]" value="{{$item['id']}}"></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <br>
             <div class="programs">
                 <h4>نرم افزار های درخواستی</h4>
                 <table>
@@ -167,6 +185,7 @@
                     @endforeach
                 </table>
             </div>
+            <br>
         </section>
         <div class="submit-form">
             <input type="submit" value="Submit">
