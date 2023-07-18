@@ -77,19 +77,19 @@
                 </table>
             </div>
             <br>
-            <div class="prices">
-                <h4>لیست قیمت ها</h4>
+            <div class="demos">
+                <h4>دمو ها</h4>
                 <table>
                     <tr>
                         <th>عنوان</th>
                         <th>لینک</th>
                         <th>انتخاب</th>
                     </tr>
-                    @foreach($result['pricesModel'] as $item)
+                    @foreach($result['demo'] as $item)
                         <tr>
                             <td>{{$item['title']}}</td>
                             <td>{{$item['link']}}</td>
-                            <td><input type="checkbox" id="" name="price_check[]" value="{{$item['id']}}"></td>
+                            <td><input type="checkbox" id="" name="demo_check[]" value="{{$item['id']}}"></td>
                         </tr>
                     @endforeach
                 </table>
@@ -115,24 +115,6 @@
                 </table>
             </div>
             <br>
-            <div class="demos">
-                <h4>دمو ها</h4>
-                <table>
-                    <tr>
-                        <th>عنوان</th>
-                        <th>لینک</th>
-                        <th>انتخاب</th>
-                    </tr>
-                    @foreach($result['demo'] as $item)
-                        <tr>
-                            <td>{{$item['title']}}</td>
-                            <td>{{$item['link']}}</td>
-                            <td><input type="checkbox" id="" name="demo_check[]" value="{{$item['id']}}"></td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div>
-
             <div class="accountants">
                 <h4>حسابداری</h4>
                 <table>
@@ -149,6 +131,25 @@
                     @endforeach
                 </table>
             </div>
+            <br>
+            <div class="prices">
+                <h4>لیست قیمت ها</h4>
+                <table>
+                    <tr>
+                        <th>عنوان</th>
+                        <th>لینک</th>
+                        <th>انتخاب</th>
+                    </tr>
+                    @foreach($result['pricesModel'] as $item)
+                        <tr>
+                            <td>{{$item['title']}}</td>
+                            <td>{{$item['link']}}</td>
+                            <td><input type="checkbox" id="" name="price_check[]" value="{{$item['id']}}"></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <br>
             <div class="faq">
                 <h4>سوالات متداول</h4>
                 <table>

@@ -74,7 +74,24 @@
         </tr>
 
     </table>
-    <div class="programs">
+        <div class="adds">
+            <h4>تبلیغات</h4>
+            <table>
+                <tr>
+                    <th>عنوان</th>
+                    <th>لینک</th>
+                    <th>عکس</th>
+                </tr>
+                @foreach($result['adds'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['link']}}</td>
+                        <td><input  @if(in_array($item['id'],$result['chosen_faq'])) checked @endif type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="programs">
         <h4>نرم افزار های درخواستی</h4>
         <table>
             <tr>
@@ -91,111 +108,93 @@
             @endforeach
         </table>
     </div>
-    <div class="prices">
-        <h4>لیست قیمت ها</h4>
-        <table>
-            <tr>
-                <th>عنوان</th>
-                <th>لینک</th>
-                <th>انتخاب</th>
-            </tr>
-            @foreach($result['pricesModel'] as $item)
+        <div class="demos">
+            <h4>دمو ها</h4>
+            <table>
                 <tr>
-                    <td>{{$item['title']}}</td>
-                    <td>{{$item['link']}}</td>
-                    <td><input @if(in_array($item['id'],$result['chosen_pricesModel'])) checked @endif type="checkbox" id="" name="price_check[]" value="{{$item['id']}}"></td>
+                    <th>عنوان</th>
+                    <th>لینک</th>
+                    <th>انتخاب</th>
                 </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="works">
-        <h4>نمونه کارها</h4>
-        <table>
-            <tr>
-                <th>عنوان</th>
-                <th>لینک</th>
-                <th>نوع</th>
-                <th>انتخاب</th>
-            </tr>
-            @foreach($result['works'] as $item)
+                @foreach($result['demo'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['link']}}</td>
+                        <td><input  @if(in_array($item['id'],$result['chosen_demo'])) checked @endif type="checkbox" id="" name="demo_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="works">
+            <h4>نمونه کارها</h4>
+            <table>
                 <tr>
-                    <td>{{$item['title']}}</td>
-                    <td>{{$item['link']}}</td>
-                    <td>{{$item['kind_titles']}}</td>
-                    <td><input @if(in_array($item['id'],$result['chosen_works'])) checked @endif type="checkbox" id="" name="work_check[]" value="{{$item['id']}}"></td>
+                    <th>عنوان</th>
+                    <th>لینک</th>
+                    <th>نوع</th>
+                    <th>انتخاب</th>
                 </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="demos">
-        <h4>دمو ها</h4>
-        <table>
-            <tr>
-                <th>عنوان</th>
-                <th>لینک</th>
-                <th>انتخاب</th>
-            </tr>
-            @foreach($result['demo'] as $item)
+                @foreach($result['works'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['link']}}</td>
+                        <td>{{$item['kind_titles']}}</td>
+                        <td><input @if(in_array($item['id'],$result['chosen_works'])) checked @endif type="checkbox" id="" name="work_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="accountants">
+            <h4>حسابداری</h4>
+            <table>
                 <tr>
-                    <td>{{$item['title']}}</td>
-                    <td>{{$item['link']}}</td>
-                    <td><input  @if(in_array($item['id'],$result['chosen_demo'])) checked @endif type="checkbox" id="" name="demo_check[]" value="{{$item['id']}}"></td>
+                    <th>عنوان</th>
+                    <th>لوگو</th>
                 </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="accountants">
-        <h4>حسابداری</h4>
-        <table>
-            <tr>
-                <th>عنوان</th>
-                <th>لوگو</th>
-            </tr>
-            @foreach($result['accountants'] as $item)
+                @foreach($result['accountants'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['logo']}}</td>
+                        <td><input  @if(in_array($item['id'],$result['chosen_accountants'])) checked @endif   type="checkbox" id="" name="accountants_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="prices">
+            <h4>لیست قیمت ها</h4>
+            <table>
                 <tr>
-                    <td>{{$item['title']}}</td>
-                    <td>{{$item['logo']}}</td>
-                    <td><input  @if(in_array($item['id'],$result['chosen_accountants'])) checked @endif   type="checkbox" id="" name="accountants_check[]" value="{{$item['id']}}"></td>
+                    <th>عنوان</th>
+                    <th>لینک</th>
+                    <th>انتخاب</th>
                 </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="faq">
-        <h4>سوالات متداول</h4>
-        <table>
-            <tr>
-                <th>سوال</th>
-                <th>جواب</th>
-                <th>انتخاب</th>
-            </tr>
-            @foreach($result['faq'] as $item)
+                @foreach($result['pricesModel'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['link']}}</td>
+                        <td><input @if(in_array($item['id'],$result['chosen_pricesModel'])) checked @endif type="checkbox" id="" name="price_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="faq">
+            <h4>سوالات متداول</h4>
+            <table>
                 <tr>
-                    <td>{{$item['quastion']}}</td>
-                    <td>{{$item['answear']}}</td>
-                    <td>{{$item['answear']}}</td>
-                    <td><input  @if(in_array($item['id'],$result['chosen_adds'])) checked @endif type="checkbox" id="" name="adds_check[]" value="{{$item['id']}}"></td>
+                    <th>سوال</th>
+                    <th>جواب</th>
+                    <th>انتخاب</th>
                 </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="faq">
-        <h4>تبلیغات</h4>
-        <table>
-            <tr>
-                <th>عنوان</th>
-                <th>لینک</th>
-                <th>عکس</th>
-            </tr>
-            @foreach($result['adds'] as $item)
-                <tr>
-                    <td>{{$item['title']}}</td>
-                    <td>{{$item['link']}}</td>
-                    <td><input  @if(in_array($item['id'],$result['chosen_faq'])) checked @endif type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
-                </tr>
-            @endforeach
-        </table>
-    </div>
-
+                @foreach($result['faq'] as $item)
+                    <tr>
+                        <td>{{$item['quastion']}}</td>
+                        <td>{{$item['answear']}}</td>
+                        <td>{{$item['answear']}}</td>
+                        <td><input  @if(in_array($item['id'],$result['chosen_adds'])) checked @endif type="checkbox" id="" name="adds_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
         <a target="_blank" href="/customer/{{ $result['customer']->id }}" type="submit">پیش نمایش</a>
         <button type="submit">Save Changes</button>
     </form>
