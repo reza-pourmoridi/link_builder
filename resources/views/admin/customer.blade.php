@@ -4,7 +4,7 @@
 
 <main>
     <h2>تغییر اطلاعات مشتری</h2>
-    <form enctype="multipart/form-data" method="POST" action="{{ route('customer.update', $result['customer']->id) }}">
+    <form id="customerForm" enctype="multipart/form-data" method="POST" action="{{ route('customer.update', $result['customer']->id) }}">
         @csrf
         @method('PUT')
     <table>
@@ -19,6 +19,12 @@
             <td>شرکت:</td>
             <td>
             <input  type="text" id="company_name" name="company_name" value="{{ $result['customer']->company }}">
+            </td>
+        </tr>
+        <tr>
+            <td>لینک:</td>
+            <td>
+            <input  type="text" id="slug" name="slug" value="{{ $result['customer']->slug }}">
             </td>
         </tr>
         <tr>
@@ -193,9 +199,52 @@
                 @endforeach
             </table>
         </div>
-        <a target="_blank" href="/customer/{{ $result['customer']->id }}" type="submit">پیش نمایش</a>
+        <a target="_blank" href="/customer/{{ $result['customer']->slug }}" type="submit">پیش نمایش</a>
         <button type="submit">Save Changes</button>
     </form>
 
 </main>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('customerForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const slugInput = document.getElementById('slug');
+            console.log(slugInput);
+
+            const formData = {
+                slug: slugInput.value
+            };
+            const url = '{{ route('check.slug') }}';
+
+            if (slugInput.value != '{{ $result['customer']->slug }}') {
+                fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            form.submit();
+                        } else {
+                            alert('لینک وارد شده تکراری است.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert('An error occurred. Please try again.');
+                    });
+            } else {
+                form.submit();
+            }
+        });
+    });
+</script>
+
 @endsection

@@ -1,7 +1,7 @@
 @extends('admin.layouts.layout')
 @section('content')
 <main>
-    <form  enctype="multipart/form-data" method="post">
+    <form id="selectAppForm" enctype="multipart/form-data" method="post">
         @csrf
         <section class="detail">
             <br>
@@ -20,6 +20,11 @@
             <div>
                 <label for="company_name">نام شرکت:</label><br>
                 <input required type="text" id="company_name" name="company_name" value="">
+            </div>
+            <br>
+            <div>
+                <label for="slug">لینک:</label><br>
+                <input required type="text" id="slug" name="slug" value="">
             </div>
             <br>
             <div>
@@ -193,4 +198,42 @@
     </form>
 
 </main>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('selectAppForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const slugInput = document.getElementById('slug');
+
+            const formData = {
+                slug: slugInput.value
+            };
+            const url = '{{ route('check.slug') }}';
+
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        form.submit();
+                    } else {
+                        alert('لینک وارد شده تکراری است.');
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('An error occurred. Please try again.');
+                });
+        });
+    });
+</script>
+
 @endsection

@@ -19,9 +19,9 @@ use App\chosen_item;
 
 class CustomerViewController extends Controller
 {
-    public function show($id)
+    public function show($slug)
     {
-        $customer = customer::findOrFail($id);
+        $customer = customer::where('slug', $slug)->first();
         $chosen_staff = staff::findOrFail($customer->staff_id);
         $types = site_types::all();
         $works = works::all();

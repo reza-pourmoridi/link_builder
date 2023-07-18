@@ -115,6 +115,7 @@ class CustomerController extends Controller
                     'providers' => $request->get('providers'),
                     'benefits' => $request->get('benefits'),
                     'honors' => $request->get('honors'),
+                    'slug' => $request->get('slug'),
                     'staff_id' => $request->get('staff_name'),
                 ]
             );
@@ -132,8 +133,15 @@ class CustomerController extends Controller
 
     }
 
-    public function test()
+    public function checkSlug(Request $request)
     {
-        return view('test');
+        $customer = customer::where('slug', $request['slug'])->first();
+        if ($customer) {
+            $result = ['error' => 'error'];
+        }else{
+            $result = [ 'success' => 'message sent'];
+        }
+        $result = json_encode($result);
+        return $result;
     }
 }

@@ -84,6 +84,7 @@ class selectAppController extends Controller
             'providers'=>'required',
             'benefits'=>'required',
             'honors'=>'required',
+            'slug'=>'required',
             'staff_name'=>'required',
         ]);
 
@@ -97,6 +98,7 @@ class selectAppController extends Controller
         $customerModel->providers = $request->get('providers');
         $customerModel->benefits = $request->get('benefits');
         $customerModel->honors = $request->get('honors');
+        $customerModel->slug = $request->get('slug');
         $customerModel->staff_id = $request->get('staff_name');
         $customerModel->save();
 
@@ -194,4 +196,5 @@ class selectAppController extends Controller
         $record->delete();
         return redirect('/admin/customers');
     }
+    
 }
