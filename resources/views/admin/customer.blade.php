@@ -24,7 +24,7 @@
         <tr>
             <td>لینک:</td>
             <td>
-            <input  type="text" id="slug" name="slug" value="{{ $result['customer']->slug }}">
+            <input required  type="text" id="slug" name="slug" value="{{ $result['customer']->slug }}">
             </td>
         </tr>
         <tr>
