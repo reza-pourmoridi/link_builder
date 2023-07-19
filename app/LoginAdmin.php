@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class LoginAdmin extends Model
 {
+    protected $table = 'login_admins';
+
     protected $fillable = [
-        'id' 	,'name' 	,'company' 	,'staff_id' ,'providers'	,'logo' , 'slug'
+        'user_name'
     ];
     const UPDATED_AT = null;
     const CREATED_AT = null;

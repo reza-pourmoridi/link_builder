@@ -17,6 +17,8 @@ class CreateStaffTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
+            $table->string('description');
+            $table->string('pic');
             $table->string('photo');
             $table->string('email');
             $table->string('instagram');
@@ -47,6 +49,18 @@ class CreateStaffTable extends Migration
             $table->string('answear');
             $table->string('kind');
         });
+        Schema::create('advertisement_tb', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('link');
+            $table->string('pic');
+        });
+        Schema::create('login_admins', function (Blueprint $table) {
+            $table->id();
+            $table->string('user_name');
+            $table->string('password');
+            $table->string('role');
+        });
     }
 
     /**
@@ -61,5 +75,7 @@ class CreateStaffTable extends Migration
         Schema::dropIfExists('prices_tb');
         Schema::dropIfExists('works_tb');
         Schema::dropIfExists('faq_tb');
+        Schema::dropIfExists('advertisement_tb');
+        Schema::dropIfExists('login_admins');
     }
 }

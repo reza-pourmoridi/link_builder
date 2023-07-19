@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\accountant;
 use App\demo;
 use App\faq;
+use App\advertisement;
 use App\Helpers;
 use App\pricesModel;
 use App\programs;
@@ -27,6 +28,7 @@ class CustomerController extends Controller
         $works = Helpers::change_site_types($works,$types);
         $faq = faq::all();
         $faq = Helpers::change_site_types($faq,$types);
+        $advertisement = advertisement::all();
 
         $demo = demo::all();
         $programs = programs::all();
@@ -35,63 +37,14 @@ class CustomerController extends Controller
         $staff = staff::all();
 
 
+        $chosen_works = $this->chosen_item('works' , $customer->id);
+        $chosen_programs = $this->chosen_item('programs' , $customer->id);
+        $chosen_pricesModel = $this->chosen_item('pricesModel' , $customer->id);
+        $chosen_demo = $this->chosen_item('demo' , $customer->id);
+        $chosen_accountants = $this->chosen_item('accountants' , $customer->id);
+        $chosen_faq = $this->chosen_item('faq' , $customer->id);
+        $chosen_adds = $this->chosen_item('advertisement' , $customer->id);
 
-
-        $chosen_works = chosen_item::where('customer_id', $customer->id)
-            ->where('item_model', 'works')
-            ->get();
-        if (isset($chosen_works[0])  && json_decode($chosen_works[0]->items_id)){
-            $chosen_works = json_decode($chosen_works[0]->items_id);
-        } else {
-            $chosen_works = array();
-        }
-
-        $chosen_programs = chosen_item::where('customer_id', $customer->id)
-            ->where('item_model', 'programs')
-            ->get();
-        if (isset($chosen_programs[0])  && json_decode($chosen_programs[0]->items_id)){
-            $chosen_programs = json_decode($chosen_programs[0]->items_id);
-        } else {
-            $chosen_programs = array();
-        }
-
-        $chosen_pricesModel = chosen_item::where('customer_id', $customer->id)
-            ->where('item_model', 'pricesModel')
-            ->get();
-        if (isset($chosen_pricesModel[0])   && json_decode($chosen_pricesModel[0]->items_id) ){
-            $chosen_pricesModel = json_decode($chosen_pricesModel[0]->items_id);
-        } else {
-            $chosen_pricesModel = array();
-        }
-
-        $chosen_demo = chosen_item::where('customer_id', $customer->id)
-            ->where('item_model', 'demo')
-            ->get();
-        if (isset($chosen_demo[0])  && json_decode($chosen_demo[0]->items_id)){
-            $chosen_demo = json_decode($chosen_demo[0]->items_id);
-        } else {
-            $chosen_demo = array();
-        }
-
-        $chosen_accountants = chosen_item::where('customer_id', $customer->id)
-            ->where('item_model', 'accountants')
-            ->get();
-        if (isset($chosen_accountants[0]) && json_decode($chosen_accountants[0]->items_id) ){
-            $chosen_accountants = json_decode($chosen_accountants[0]->items_id);
-        } else {
-            $chosen_accountants = array();
-        }
-
-        $chosen_faq = chosen_item::where('customer_id', $customer->id)
-            ->where('item_model', 'faq')
-            ->get();
-        if (isset($chosen_faq[0]) && json_decode($chosen_faq[0]->items_id) ){
-            $chosen_faq = json_decode($chosen_faq[0]->items_id);
-        } else {
-            $chosen_faq = array();
-        }
-
-//        dd($faq);
 
         $result = [
             'customer'=>$customer,
@@ -102,6 +55,8 @@ class CustomerController extends Controller
             'chosen_works'=> $chosen_works ,
             'faq'=>$faq ,
             'chosen_faq'=>$chosen_faq ,
+            'adds'=>$advertisement ,
+            'chosen_adds'=>$chosen_adds ,
             'demo'=>$demo ,
             'chosen_demo'=>$chosen_demo ,
             'programs'=>$programs ,
@@ -113,6 +68,33 @@ class CustomerController extends Controller
         ];
 
         return view('admin.customer', compact('result'));
+    }
+
+    public function chosen_item($table , $customer_id)
+    {
+        $chosen_item= chosen_item::where('customer_id', $customer_id)
+            ->where('item_model', $table)
+            ->get();
+        if (isset($chosen_item[0]) && json_decode($chosen_item[0]->items_id) ){
+            $chosen_item = json_decode($chosen_item[0]->items_id);
+        } else {
+            $chosen_item = array();
+        }
+        return $chosen_item;
+    }
+
+    public function choose_item($id, $table, $items)
+    {
+        $chosen_item = new chosen_item();
+        $chosen_item
+            ->where('item_model', '=', $table)
+            ->where('customer_id', '=', $id)
+            ->delete();
+        $chosen_item = new chosen_item();
+        $chosen_item->item_model = $table;
+        $chosen_item->customer_id = $id;
+        $chosen_item->items_id = json_encode($items);
+        $chosen_item->save();
     }
 
     public function update(Request $request, $id)
@@ -131,86 +113,35 @@ class CustomerController extends Controller
                     'name' => $request->get('customer_name'),
                     'company' => $request->get('company_name'),
                     'providers' => $request->get('providers'),
+                    'benefits' => $request->get('benefits'),
+                    'honors' => $request->get('honors'),
+                    'slug' => $request->get('slug'),
                     'staff_id' => $request->get('staff_name'),
                 ]
             );
 
-            $chosen_item = new chosen_item();
-            $chosen_item
-                ->where('item_model', '=', 'programs')
-                ->where('customer_id', '=', $id)
-                ->delete();
-            $chosen_item = new chosen_item();
-            $chosen_item->item_model = 'programs';
-            $chosen_item->customer_id = $id;
-            $chosen_item->items_id = json_encode($request->get('program_check'));
-            $chosen_item->save();
-
-            $chosen_item = new chosen_item();
-            $chosen_item
-                ->where('item_model', '=', 'pricesModel')
-                ->where('customer_id', '=', $id)
-                ->delete();
-            $chosen_item->item_model = 'pricesModel';
-            $chosen_item->customer_id = $id;
-            $chosen_item->items_id = json_encode($request->get('price_check'));
-            $chosen_item->save();
-
-
-
-            $chosen_item = new chosen_item();
-            $chosen_item
-                ->where('item_model', '=', 'works')
-                ->where('customer_id', '=', $id)
-                ->delete();
-            $chosen_item->item_model = 'works';
-            $chosen_item->customer_id = $id;
-            $chosen_item->items_id = json_encode($request->get('work_check'));
-            $chosen_item->save();
-
-
-
-            $chosen_item = new chosen_item();
-            $chosen_item
-                ->where('item_model', '=', 'demo')
-                ->where('customer_id', '=', $id)
-                ->delete();
-            $chosen_item->item_model = 'demo';
-            $chosen_item->customer_id = $id;
-            $chosen_item->items_id = json_encode($request->get('demo_check'));
-            $chosen_item->save();
-
-
-
-            $chosen_item = new chosen_item();
-            $chosen_item
-                ->where('item_model', '=', 'accountants')
-                ->where('customer_id', '=', $id)
-                ->delete();
-            $chosen_item->item_model = 'accountants';
-            $chosen_item->customer_id = $id;
-            $chosen_item->items_id = json_encode($request->get('accountants_check'));
-            $chosen_item->save();
-
-            $chosen_item = new chosen_item();
-            $chosen_item
-                ->where('item_model', '=', 'faq')
-                ->where('customer_id', '=', $id)
-                ->delete();
-            $chosen_item->item_model = 'faq';
-            $chosen_item->customer_id = $id;
-            $chosen_item->items_id = json_encode($request->get('faq_check'));
-            $chosen_item->save();
-
-
+            $this->choose_item($id,'programs', $request->get('program_check'));
+            $this->choose_item($id,'pricesModel', $request->get('price_check'));
+            $this->choose_item($id,'works', $request->get('work_check'));
+            $this->choose_item($id,'demo', $request->get('demo_check'));
+            $this->choose_item($id,'accountants', $request->get('accountants_check'));
+            $this->choose_item($id,'faq', $request->get('faq_check'));
+            $this->choose_item($id,'advertisement', $request->get('adds_check'));
 
 
         return redirect('/admin/customer/'.$id);
 
     }
 
-    public function test()
+    public function checkSlug(Request $request)
     {
-        return view('test');
+        $customer = customer::where('slug', $request['slug'])->first();
+        if ($customer) {
+            $result = ['error' => 'error'];
+        }else{
+            $result = [ 'success' => 'message sent'];
+        }
+        $result = json_encode($result);
+        return $result;
     }
 }

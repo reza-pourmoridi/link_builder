@@ -8,7 +8,9 @@ use App\pricesModel;
 use App\programs;
 use App\works;
 use App\faq;
+use App\advertisement;
 use App\demo;
+use App\LoginAdmin;
 use App\site_types;
 use App\accountant;
 
@@ -30,6 +32,7 @@ class StaffController extends Controller
         $faq = faq::all();
         $faq = Helpers::change_site_types($faq,$types);
         $accountant = accountant::all();
+        $advertisement = advertisement::all();
 
         $demo = demo::all();
         $programs = programs::all();
@@ -40,6 +43,7 @@ class StaffController extends Controller
             'types'=>$types ,
             'works'=>$works ,
             'faq'=>$faq ,
+            'adds'=>$advertisement ,
             'demo'=>$demo ,
             'programs'=>$programs ,
             'pricesModel'=>$pricesModel ,
@@ -64,13 +68,14 @@ class StaffController extends Controller
  */
     public function store(Request $request)
     {
-
-
         if ($request->get('price_title')){
             $this->store_prices($request);
         }
         if ($request->get('demo_title')){
             $this->store_demo($request);
+        }
+        if ($request->get('adds_title')){
+            $this->store_adds($request);
         }
         if ($request->get('program_title')){
             $this->store_programs($request);
@@ -152,6 +157,11 @@ class StaffController extends Controller
     public function destroyFaq(int $id)
     {
         faq::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+    public function destroyAdds(int $id)
+    {
+        advertisement::destroy($id);
         return redirect('admin/staff')->with('success', 'item deleted!');
     }
 
@@ -277,6 +287,24 @@ class StaffController extends Controller
             $pricesModel->save();
     }
 
+    public function store_adds(Request $request)
+    {
+        $request-> validate([
+            'adds_title'=>'required',
+            'adds_link'=>'required',
+            'adds_pic'=>'required',
+        ]);
+
+        $addsModel = new advertisement();
+
+        $imageName = $this->insert_pic('adds_pic');
+        $addsModel->pic = $imageName;
+        $addsModel->title = $request->get('adds_title');
+        $addsModel->link = $request->get('adds_link');
+
+        $addsModel->save();
+    }
+
     public function insert_pic( $field )
     {
         global $request;
@@ -284,5 +312,26 @@ class StaffController extends Controller
         $request->$field->move(public_path('images'), $imageName);
         return $imageName;
     }
+
+
+    public function showLoginForm()
+    {
+        return view('admin.login');
+    }
+
+    public function login(Request $request)
+    {
+        $AUTH_DETAIL = LoginAdmin::first();
+
+
+        if ($AUTH_DETAIL->user_name == $request->username && $AUTH_DETAIL->password == $request->password) {
+            // Assuming you have authenticated the user and verified their admin status
+            session(['isAdmin' => true]);
+            return redirect('/admin/staff');
+        } else {
+            return redirect()->back()->withInput()->withErrors(['login' => 'Invalid credentials']);
+        }
+    }
+
 
 }

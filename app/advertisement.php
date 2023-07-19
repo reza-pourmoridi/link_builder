@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class advertisement extends Model
 {
+    protected $table = 'advertisement_tb';
     protected $fillable = [
-        'id' 	,'name' 	,'company' 	,'staff_id' ,'providers'	,'logo' , 'slug'
+        'title', 'link', 'pic'
     ];
     const UPDATED_AT = null;
     const CREATED_AT = null;

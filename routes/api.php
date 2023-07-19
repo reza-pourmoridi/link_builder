@@ -33,4 +33,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('page/{id}', 'LinksPageController@getById');
 
+Route::post('check-slug', 'CustomerController@checkSlug')->name('check.slug');
+
+
 

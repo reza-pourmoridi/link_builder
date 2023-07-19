@@ -19,7 +19,10 @@ class CreateCustomersTable extends Migration
             $table->string('company');
             $table->string('staff_id');
             $table->string('providers');
+            $table->string('benefits');
+            $table->string('honors');
             $table->string('logo');
+            $table->string('slug');
         });
     }
 
