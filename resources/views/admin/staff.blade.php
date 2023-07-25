@@ -183,7 +183,7 @@
         </table>
     </div>
     <div class="main-dive">
-        <form method="post"  >
+        <form enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>لیست قیمت </h1>
             <div>
@@ -193,6 +193,10 @@
             <div>
                 <lable>لینک</lable>
                 <input type="text"  value="" name="price_link" id="">
+            </div>
+            <div>
+                <lable>عکس</lable>
+                <input class="images-input" id="price_pic" accept="image/*" type="file" name="price_pic" value="">
             </div>
             <h3>نوع</h3>
             <div>
@@ -208,6 +212,7 @@
             <tr>
                 <th>عنوان</th>
                 <th>لینک</th>
+                <th>عکس</th>
                 <th>نوع</th>
                 <th>حذف</th>
             </tr>
@@ -215,6 +220,7 @@
                 <tr>
                     <td>{{$item['title']}}</td>
                     <td>{{$item['link']}}</td>
+                    <td><img src="{{asset('images/'.$item['pic'])}}"></td>
                     <td>{{$item['kind_titles']}}</td>
                     <td><a  href="staff/pricesModel/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
                 </tr>

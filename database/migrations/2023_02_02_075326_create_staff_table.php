@@ -17,13 +17,15 @@ class CreateStaffTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
-            $table->string('description');
+            $table->text('description');
             $table->string('pic');
             $table->string('photo');
             $table->string('email');
             $table->string('instagram');
             $table->string('whatsapp');
             $table->string('linkdin');
+            $table->string('telegram');
+            $table->string('phone');
         });
         Schema::create('programs_tb', function (Blueprint $table) {
             $table->id();
@@ -35,6 +37,7 @@ class CreateStaffTable extends Migration
             $table->string('title');
             $table->string('link');
             $table->string('kind');
+            $table->string('pic');
         });
         Schema::create('works_tb', function (Blueprint $table) {
             $table->id();

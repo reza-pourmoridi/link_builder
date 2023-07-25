@@ -177,16 +177,20 @@ class StaffController extends Controller
             'price_title'=>'required',
             'price_link'=>'required',
             'price_kind'=>'required',
+            'price_pic'=>'required',
         ]);
         $type = '';
         foreach ($request['price_kind'] as $key => $value){
             $type .= $value."|";
         }
 
+        $imageName = $this->insert_pic('price_pic');
+
         $pricesModel = new pricesModel([
             'title' => $request->get('price_title'),
             'link' => $request->get('price_link'),
             'kind' => $type,
+            'pic' => $imageName,
         ]);
 
         $pricesModel->save();
