@@ -1,10 +1,10 @@
 function selectFaqType(element) {
     var faq_item_class = element.value;
-    console.log(faq_item_class);
     var allRows = document.querySelectorAll('#all_faq_questions tr');
     allRows.forEach(function(row) {
-        if (faq_item_class){
+        if (faq_item_class && faq_item_class != null && faq_item_class != 'null'){
             if (!row.classList.contains(faq_item_class)) {
+                console.log(faq_item_class);
                 row.style.display = 'none';
             } else {
                 row.style.display = 'table-row';
