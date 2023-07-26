@@ -186,7 +186,7 @@
                         <th>پاسخ</th>
                         <th>نوع</th>
                         <th>انتخاب همه
-                            <input onclick="selectAlloptions(this,'faq_check[]');" type="checkbox" id="" id="adds_all"></th>
+                            <input onclick="selectAlloptions(this,'faq_check[]');" type="checkbox"  id="faq_all"></th>
                     </tr>
                     <tr>
                         <div>
@@ -218,26 +218,6 @@
     </form>
 
 </main>
-<script>
-    function selectAlloptions(checked , checkBoxName) {
-        var checkboxes = document.querySelectorAll('input[name="' + checkBoxName + '"]');
-
-         checkboxes.forEach(function (checkbox) {
-             var parentDisplayStyle = checkbox.parentElement.parentElement.display;
-             console.log(parentDisplayStyle);
-             if (checked.checked) {
-                 if (parentDisplayStyle !== "none") {
-                     checkbox.checked = true;
-                 }
-             } else {
-                 if (parentDisplayStyle !== "none") {
-                     checkbox.checked = false;
-                 }
-             }
-            });
-
-    }
-</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

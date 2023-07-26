@@ -86,6 +86,8 @@
                 <tr>
                     <th>عنوان</th>
                     <th>لینک</th>
+                    <th>انتخاب همه
+                        <input onclick="selectAlloptions(this,'adds_check[]');" type="checkbox"  id="faq_all"></th>
                 </tr>
                 @foreach($result['adds'] as $item)
                     <tr>
@@ -102,7 +104,8 @@
             <tr>
                 <th>عنوان</th>
                 <th>لینک</th>
-                <th>انتخاب</th>
+                <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'program_check[]');" type="checkbox"  id="faq_all"></th>
             </tr>
             @foreach($result['programs'] as $item)
                 <tr>
@@ -119,7 +122,8 @@
                 <tr>
                     <th>عنوان</th>
                     <th>لینک</th>
-                    <th>انتخاب</th>
+                    <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'demo_check[]');" type="checkbox"  id="faq_all"></th>
                 </tr>
                 @foreach($result['demo'] as $item)
                     <tr>
@@ -137,7 +141,8 @@
                     <th>عنوان</th>
                     <th>لینک</th>
                     <th>نوع</th>
-                    <th>انتخاب</th>
+                    <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'work_check[]');" type="checkbox"  id="faq_all"></th>
                 </tr>
                 @foreach($result['works'] as $item)
                     <tr>
@@ -155,6 +160,10 @@
                 <tr>
                     <th>عنوان</th>
                     <th>لوگو</th>
+                    <th>
+                        انتخاب همه
+                        <input onclick="selectAlloptions(this,'accountants_check[]');" type="checkbox"  id="faq_all">
+                    </th>
                 </tr>
                 @foreach($result['accountants'] as $item)
                     <tr>
@@ -171,7 +180,8 @@
                 <tr>
                     <th>عنوان</th>
                     <th>لینک</th>
-                    <th>انتخاب</th>
+                    <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'price_check[]');" type="checkbox"  id="faq_all"></th>
                 </tr>
                 @foreach($result['pricesModel'] as $item)
                     <tr>
@@ -188,15 +198,28 @@
                 <tr>
                     <th>سوال</th>
                     <th>جواب</th>
-                    <th>انتخاب</th>
+                    <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'faq_check[]');" type="checkbox"  id="faq_all"></th>
                 </tr>
+                <tr>
+                    <div>
+                        <select>
+                            <option onclick="selectFaqType(null);" value="">انتخاب دسته </option>
+                            @foreach($result['types'] as $item)
+                                <option onclick="selectFaqType('faq_cat_{{$item['slug']}}');" > {{$item['title']}} </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </tr>
+                <tbody id="all_faq_questions">
                 @foreach($result['faq'] as $item)
-                    <tr>
+                    <tr class="@foreach($result['types'] as $cat)@if (strpos($item['kind'], $cat['slug']) !== false) faq_cat_{{$cat['slug']}} @endif @endforeach">
                         <td>{{$item['quastion']}}</td>
                         <td>{{$item['answear']}}</td>
                         <td><input  @if(in_array($item['id'],$result['chosen_faq'])) checked @endif type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
         <a target="_blank" href="/customer/{{ $result['customer']->slug }}" type="submit">پیش نمایش</a>
