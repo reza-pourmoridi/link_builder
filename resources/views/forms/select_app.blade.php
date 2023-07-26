@@ -190,10 +190,10 @@
                     </tr>
                     <tr>
                         <div>
-                            <select>
-                                <option onclick="selectFaqType(null);" value="">انتخاب دسته </option>
+                            <select onchange="selectFaqType(this)">
+                                <option value="null" value="">انتخاب دسته </option>
                                 @foreach($result['types'] as $item)
-                                    <option onclick="selectFaqType('faq_cat_{{$item['slug']}}');" > {{$item['title']}} </option>
+                                    <option value="faq_cat_{{$item['slug']}}" > {{$item['title']}} </option>
                                 @endforeach
                             </select>
                         </div>

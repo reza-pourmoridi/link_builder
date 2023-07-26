@@ -1,4 +1,6 @@
-function selectFaqType(faq_item_class) {
+function selectFaqType(element) {
+    var faq_item_class = element.value;
+    console.log(faq_item_class);
     var allRows = document.querySelectorAll('#all_faq_questions tr');
     allRows.forEach(function(row) {
         if (faq_item_class){
