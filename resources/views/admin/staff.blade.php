@@ -2,7 +2,7 @@
 @section('content')
 <main class="multi-forms">
     <div class="main-dive">
-        <form enctype="multipart/form-data" method="post"  >
+        <form id="adds_form" action="#adds_form"  enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>تبلیغات</h1>
             <lable>عنوان</lable>
@@ -11,7 +11,7 @@
             <lable>لینک</lable>
             <input type="text" value="" name="adds_link" id="">
             <div>
-                <lable>لوگو</lable>
+                <lable>بنر</lable>
                 <input class="images-input" id="adds_pic" accept="image/*" type="file" name="adds_pic" value="">
             </div>
             <br>
@@ -21,7 +21,7 @@
             <tr>
                 <th>عنوان</th>
                 <th>لینک</th>
-                <th>عکس</th>
+                <th>بنر</th>
                 <th>حذف</th>
             </tr>
             @foreach($result['adds'] as $item)
@@ -36,7 +36,7 @@
 
     </div>
     <div class="main-dive">
-        <form method="post"  >
+        <form id="program_form" action="#program_form" method="post"  >
             @csrf
             <h1>نرم افزار ها</h1>
             <div>
@@ -66,7 +66,7 @@
         </table>
     </div>
     <div class="main-dive">
-        <form  enctype="multipart/form-data" method="post"  >
+        <form id="demo_form" action="#demo_form"  enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>دمو</h1>
             <div>
@@ -106,7 +106,7 @@
 
     </div>
     <div class="main-dive">
-        <form enctype="multipart/form-data" method="post"  >
+        <form id="work_form" action="#work_form" enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>نمونه کار</h1>
             <div>
@@ -152,7 +152,7 @@
         </table>
     </div>
     <div class="main-dive">
-        <form enctype="multipart/form-data" method="post"  >
+        <form id="accountant_form" action="#accountant_form" enctype="multipart/form-data" method="post"  >
             @csrf
             <h1>حسابداری </h1>
             <div>
@@ -183,7 +183,7 @@
         </table>
     </div>
     <div class="main-dive">
-        <form enctype="multipart/form-data" method="post"  >
+        <form id="price_title" enctype="multipart/form-data" action="#price_title" method="post"  >
             @csrf
             <h1>لیست قیمت </h1>
             <div>
@@ -228,7 +228,7 @@
         </table>
     </div>
     <div class="main-dive">
-        <form method="post"  >
+        <form id="faq_form" action="#faq_form" method="post"  >
             @csrf
             <h1>سوالات متداول</h1>
             <lable>سوال</lable>

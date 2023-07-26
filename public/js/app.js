@@ -27,3 +27,5 @@ function show_next_parrant_element (current_element) {
         next_element.style.visibility = "hidden";
     }
 }
+
+

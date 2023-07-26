@@ -70,7 +70,8 @@
                     <tr>
                         <th>عنوان</th>
                         <th>لینک</th>
-                        <th>عکس</th>
+                        <th>انتخاب همه
+                            <input  onclick="selectAlloptions(this,'adds_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
                     @foreach($result['adds'] as $item)
                         <tr>
@@ -88,7 +89,8 @@
                     <tr>
                         <th>عنوان</th>
                         <th>لینک</th>
-                        <th>انتخاب</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'program_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
                     @foreach($result['programs'] as $item)
                         <tr>
@@ -106,7 +108,8 @@
                     <tr>
                         <th>عنوان</th>
                         <th>لینک</th>
-                        <th>انتخاب</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'demo_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
                     @foreach($result['demo'] as $item)
                         <tr>
@@ -125,7 +128,8 @@
                         <th>عنوان</th>
                         <th>لینک</th>
                         <th>نوع</th>
-                        <th>انتخاب</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'work_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
                     @foreach($result['works'] as $item)
                         <tr>
@@ -143,12 +147,12 @@
                 <table>
                     <tr>
                         <th>عنوان</th>
-                        <th>لوگو</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'accountants_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
                     @foreach($result['accountants'] as $item)
                         <tr>
                             <td>{{$item['title']}}</td>
-                            <td>{{$item['logo']}}</td>
                             <td><input  type="checkbox" id="" name="accountants_check[]" value="{{$item['id']}}"></td>
                         </tr>
                     @endforeach
@@ -161,7 +165,8 @@
                     <tr>
                         <th>عنوان</th>
                         <th>لینک</th>
-                        <th>انتخاب</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'price_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
                     @foreach($result['pricesModel'] as $item)
                         <tr>
@@ -179,15 +184,30 @@
                     <tr>
                         <th>سوال</th>
                         <th>پاسخ</th>
-                        <th>انتخاب</th>
+                        <th>نوع</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'faq_check[]');" type="checkbox" id="" id="adds_all"></th>
                     </tr>
-                    @foreach($result['faq'] as $item)
-                        <tr>
-                            <td>{{$item['quastion']}}</td>
-                            <td>{{$item['answear']}}</td>
-                            <td><input type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
-                        </tr>
-                    @endforeach
+                    <tr>
+                        <div>
+                            <select>
+                                <option onclick="selectFaqType(null);" value="">انتخاب دسته </option>
+                                @foreach($result['types'] as $item)
+                                    <option onclick="selectFaqType('faq_cat_{{$item['slug']}}');" > {{$item['title']}} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </tr>
+                    <tbody id="all_faq_questions">
+                        @foreach($result['faq'] as $item)
+                             <tr class="@foreach($result['types'] as $cat)@if (strpos($item['kind'], $cat['slug']) !== false) faq_cat_{{$cat['slug']}} @endif @endforeach">
+                                <td>{{$item['quastion']}}</td>
+                                <td>{{$item['answear']}}</td>
+                                <td>{{$item['kind_titles']}}</td>
+                                <td><input type="checkbox" id="" name="faq_check[]" value="{{$item['id']}}"></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
             <br>
@@ -198,6 +218,27 @@
     </form>
 
 </main>
+<script>
+    function selectAlloptions(checked , checkBoxName) {
+        var checkboxes = document.querySelectorAll('input[name="' + checkBoxName + '"]');
+
+         checkboxes.forEach(function (checkbox) {
+             var parentDisplayStyle = checkbox.parentElement.parentElement.display;
+             console.log(parentDisplayStyle);
+             if (checked.checked) {
+                 if (parentDisplayStyle !== "none") {
+                     checkbox.checked = true;
+                 }
+             } else {
+                 if (parentDisplayStyle !== "none") {
+                     checkbox.checked = false;
+                 }
+             }
+            });
+
+    }
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('selectAppForm');

@@ -38,6 +38,8 @@
         </ul>
     </nav>
 </footer>
+<script src="{{ (asset('js/admin/index.js')) }}"></script>
+
 </body>
 </html>
 
