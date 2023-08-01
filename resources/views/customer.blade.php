@@ -317,12 +317,17 @@
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>معرفی نرم افزارها</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div class="">
+                    <h5>معرفی نرم افزارها</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
@@ -628,18 +633,23 @@
     @if($result['customer']->benefits == 1)
     <div class="title">
         <div class="container">
-            <h2>مزایا ایران تکنولوژی</h2>
+            <h2>مزایای ایران تکنولوژی</h2>
         </div>
     </div>
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>مزایای ایران تکنولوژی</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div>
+                    <h5>مزایای ایران تکنولوژی</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
@@ -653,7 +663,7 @@
                                 <img src="{{ (asset('pic/18407472_5995339.jpg') ) }}" alt="img-owl">
                             </div>
                             <div class="parent-text-advantages">
-                                <h2>قابلیت رسپانسیو</h2>
+                                <h2>قابلیت ریسپانسیو</h2>
                                 <p>
                                     به طور کلی، خدمات متنوع مسافرتی موسسه مهاجرتی ما به 3 دسته اصلی خدمات ویزا، خدمات اقامت و پیکاپ ویزا تقسیم می شود. خدمات ویزای موسسه مهاجرتی ما شامل اخذ وقت سفارت و دریافت انواع ویزای توریستی کانادا، ویزای توریستی انگلیس، ویزای توریستی شینگن (سوئیس و سوئد) و ویزای کشورهایی نظیر ژاپن و استرالیا می شود.
                                 </p>
@@ -808,12 +818,17 @@
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>دموی آنلاین</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div class="">
+                    <h5>دموی آنلاین</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
@@ -824,8 +839,15 @@
             @foreach($result['demo'] as $item)
                     @if(in_array($item['id'],$result['chosen_demo']))
                         <a href="{{$item['link']}}" class="demo-item-link">
-                            <img src="{{asset('images/'.$item['logo'])}}" alt="{{$item['title']}}">
-                            <h3>{{$item['title']}}</h3>
+                            <img class="d-none" src="{{asset('images/'.$item['logo'])}}" alt="{{$item['title']}}">
+
+                            <div class="parent-text-demo col-8 p-0">
+                                <h3>{{$item['title']}}</h3>
+                                <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                            </div>
+                            <div class="parent-svg-demo col-4 p-0">
+                                <img src="{{ (asset('pic/360.png') ) }}" alt="demo-img">
+                            </div>
                         </a>
                     @endif
             @endforeach
@@ -932,12 +954,17 @@
         <div class="title-desktop">
             <div class="container">
                 <div class="title-Internal d-flex align-items-center justify-content-between ">
-                    <h5>لیست قیمت ها</h5>
-                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                    </svg>
+                    <div>
+                        <h5>لیست قیمت ها</h5>
+                        <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                            <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                            <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                        </svg>
+                    </div>
+                    <div class="parent-title-360">
+                        <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                    </div>
                 </div>
             </div>
         </div>
@@ -972,12 +999,17 @@
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>آمار</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div>
+                    <h5>آمار</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
@@ -1018,7 +1050,7 @@
                     <div class="skill">
                         <h3 class="skill__type">مشتریان خارجی (کشورها)(14)</h3>
                         <div class="skill__outer-bar">
-                            <div class="skill__inner-bar skill__inner-bar--15"></div>
+                            <div class="skill__inner-bar skill__inner-bar--35"></div>
                         </div>
                     </div>
                 </div>
@@ -1150,12 +1182,17 @@
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>فرایند همکاری</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div>
+                    <h5>فرایند همکاری</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
@@ -1182,12 +1219,17 @@
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>سوالات متداول</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div>
+                    <h5>سوالات متداول</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
@@ -1227,12 +1269,17 @@
     <div class="title-desktop">
         <div class="container">
             <div class="title-Internal d-flex align-items-center justify-content-between ">
-                <h5>دستاوردها و افتخارات</h5>
-                <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
-                    <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
-                    <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
-                </svg>
+                <div>
+                    <h5>دستاوردها و افتخارات</h5>
+                    <svg class="svg-title" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                        <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                        <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                    </svg>
+                </div>
+                <div class="parent-title-360">
+                    <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
+                </div>
             </div>
         </div>
     </div>
