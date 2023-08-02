@@ -974,11 +974,11 @@
                     @foreach($result['pricesModel'] as $item)
                         @if(in_array($item['id'],$result['chosen_pricesModel']))
                             <a href="{{$item['link']}}" class="price-list-link ">
-                                <div class="text-price-list col-8">
+                                <div class="text-price-list col-9">
                                     <h3>{{$item['title']}}</h3>
                                     <span>لیست قیمت</span>
                                 </div>
-                                <div class="svg-price-list col-4">
+                                <div class="svg-price-list col-3">
                                     <img src="{{ (asset('images/'.$item['pic']) )  }}" alt="{{$item['title']}}">
                                 </div>
                                 <div class="bg-svg-background">
