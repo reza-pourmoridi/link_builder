@@ -844,10 +844,9 @@
 
                                     <div class="parent-text-demo col-8 p-0">
                                         <h3>{{$item['title']}}</h3>
-                                        <img src="{{ (asset('pic/360.png') ) }}" alt="title-360">
                                     </div>
                                     <div class="parent-svg-demo col-4 p-0">
-                                        <img src="{{ (asset('pic/360.png') ) }}" alt="demo-img">
+                                        <img src="{{ (asset('images/'.$item['logo']) ) }}" alt="demo-img">
                                     </div>
                                 </a>
                             @endif
