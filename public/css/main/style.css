@@ -1780,6 +1780,15 @@ html {
     .owl-advantages .owl-dots{
         bottom: 26px;
     }
+    .owl-carousel .owl-nav .owl-prev{
+        right: -11px;
+    }
+    .owl-carousel .owl-nav button svg{
+        width: 10px;
+    }
+    .owl-carousel .owl-nav .owl-next{
+        left: -11px;
+    }
 }
 @media (max-width: 576px) {
     .expert,.tab-box,.suppliers,.advantages,.demo,.work-samples,.price-list,.statistics,.direction-mobile,.questions,.honors{
