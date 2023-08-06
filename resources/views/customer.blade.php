@@ -860,6 +860,22 @@
                 </div>
             </section>
             @endif
+                            <div class="parent-text-demo col-8 p-0">
+                                <h3>{{$item['title']}}</h3>
+                            </div>
+                            <div class="parent-svg-demo col-4 p-0">
+                                <img src="{{ (asset('pic/360.png') ) }}" alt="demo-img">
+                            </div>
+                        </a>
+                    @endif
+            @endforeach
+            </div>
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M232 72c0-13.3-10.7-24-24-24s-24 10.7-24 24V232H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H184V440c0 13.3 10.7 24 24 24s24-10.7 24-24V280H392c13.3 0 24-10.7 24-24s-10.7-24-24-24H232V72z"/></svg>
+                برای مشاهده دموی پنل مدیریت به مشاور خود مراجعه نمایید.
+            </p>
+        </div>
+    </section>
     @endif
     @if($result['chosen_works'])
         <div class="title">
@@ -1044,7 +1060,7 @@
                         </div>
                     </div>
                     <div class="skill">
-                        <h3 class="skill__type">مشتریان داخلی (استان ها) (24)</h3>
+                        <h3 class="skill__type">سالهای فعالیت (20 سال) </h3>
                         <div class="skill__outer-bar">
                             <div class="skill__inner-bar skill__inner-bar--70"></div>
                         </div>

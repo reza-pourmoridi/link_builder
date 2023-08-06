@@ -2,8 +2,8 @@ $('.owl-automation').owlCarousel({
     rtl:true,
     loop:true,
     margin:5,
-    nav:false,
-    dots: true,
+    nav:true,
+    dots: false,
     navText: ["<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 512\"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z\"/></svg>","<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 512\"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z\"/></svg>"],
     autoplay: true,
     autoplayTimeout: 10000,
@@ -14,13 +14,9 @@ $('.owl-automation').owlCarousel({
         },
         600:{
             items:4,
-            dots: true,
-            nav: false
         },
         1000:{
             items:7,
-            dots: false,
-            nav: true
         }
     }
 });
@@ -103,8 +99,8 @@ $('.owl-work-samples').owlCarousel({
     rtl:true,
     loop:true,
     margin:5,
-    nav:false,
-    dots: true,
+    nav:true,
+    dots: false,
     navText: ["<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 512\"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M246.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 41.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z\"/></svg>","<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 512\"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z\"/></svg>"],
     autoplay: true,
     autoplayTimeout: 10000,
@@ -114,14 +110,10 @@ $('.owl-work-samples').owlCarousel({
             items:1
         },
         600:{
-            items:2,
-            dots: true,
-            nav: false
+            items:2
         },
         1000:{
-            items:3,
-            dots: false,
-            nav: true
+            items:3
         }
     }
 });
