@@ -295,9 +295,9 @@
             @endforeach
         </div>
     </section>
-    @if($result['chosen_works'])
+    @if($result['chosen_adds'])
         @foreach($result['adds'] as $item)
-            @if(in_array($item['id'],$result['chosen_faq']))
+            @if(in_array($item['id'],$result['chosen_adds']))
             <section class="baner-off">
                 <div class="container">
                     <div class="parent-img-baner-off">
