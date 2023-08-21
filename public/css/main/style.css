@@ -1370,6 +1370,7 @@ main{
     /*! width: 83px; */
     padding: 0px 12px;
     font-size: 14px;
+    text-decoration: none;
 }
 .plus-btn:hover {
     background: var(--mainColor);
