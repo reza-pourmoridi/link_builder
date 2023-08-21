@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $result['customer']->name }}</title>
 
     <link rel="stylesheet" href="{{ (asset('css/main/owl.carousel.min.css')) }}">
     <link rel="stylesheet" href="{{ (asset('css/main/owl.theme.default.min.css')) }}">
+    <link rel="stylesheet" href="{{ (asset('css/main/swiper.css')) }}">
+{{--    <link rel="stylesheet" href="{{ (asset('css/main/swiper-bundle.css')) }}">--}}
     <link rel="stylesheet" href="{{ (asset('css/main/bootstrap.min.css')) }}">
     <link rel="stylesheet" href="{{ (asset('css/main/style.css')) }}">
 
@@ -88,7 +91,9 @@
                         <h3>{{ $result['customer']->company }}</h3>
                     </div>
                     <h6> {{ $result['customer']->name }} خوش آمدید.</h6>
-                    <p class="multipleStrings-mobile"></p>
+                    <p class="multipleStrings-mobile">
+                        دوست عزیز سلام! <br> خیلی خوشحالیم که افتخار همراهی شما رو داریم و از اینکه ایران تکنولوژی رو برای ارائه خدمات انتخاب کردید از شما سپاسگزاریم.تمام اطلاعات مورد نیاز شما جهت بررسی سیستم مثل قیمت خدمات،دموی آنلاین،نمونه کارها و ... در همین صفحه برای شما به صورت اختصاصی طراحی و در اختیارتون گذاشته شده.لطفا همه موارد رو مطالعه کنید و در صورت نیاز به راهنمایی  به مشاور خودتون مراجعه کنید.
+                    </p>
                 </div>
             </div>
         </div>
@@ -339,7 +344,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M372.7 299.3C375.8 302.4 379.9 304 384 304s8.188-1.562 11.31-4.688l64-64c6.25-6.25 6.25-16.38 0-22.62l-64-64c-6.25-6.25-16.38-6.25-22.62 0s-6.25 16.38 0 22.62L425.4 224l-52.69 52.69C366.4 282.9 366.4 293.1 372.7 299.3zM267.3 148.7c-6.25-6.25-16.38-6.25-22.62 0l-64 64c-6.25 6.25-6.25 16.38 0 22.62l64 64C247.8 302.4 251.9 304 256 304s8.188-1.562 11.31-4.688c6.25-6.25 6.25-16.38 0-22.62L214.6 224l52.69-52.69C273.6 165.1 273.6 154.9 267.3 148.7zM80 352C88.84 352 96 344.8 96 336V96c0-17.66 14.36-32 32-32h384c17.64 0 32 14.34 32 32v240c0 8.844 7.156 16 16 16s16-7.156 16-16V96c0-35.28-28.7-64-64-64H128C92.7 32 64 60.72 64 96v240C64 344.8 71.16 352 80 352zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM576 448H64c-17.64 0-32-14.36-32-32h576C608 433.6 593.6 448 576 448z"/></svg>
 
                         <span class="tab-desk-box">طراحی  وب سایت</span>
-                        <sapn class="tab-mobile-box">طراحی  وب سایت</sapn>
+                        <sapn class="tab-mobile-box">طراحی  سایت</sapn>
                     </button>
                     <button class="tablinks" onclick="openCity(event, 'Paris')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M320 0H64C28.66 0 0 28.66 0 64v384c0 35.34 28.66 64 64 64h256c35.34 0 64-28.66 64-64V64C384 28.66 355.3 0 320 0zM352 448c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V160h320V448zM352 128H32V64c0-17.64 14.36-32 32-32h256c17.64 0 32 14.36 32 32V128zM80 432h128c8.844 0 16-7.156 16-16s-7.156-16-16-16h-128C71.16 400 64 407.2 64 416S71.16 432 80 432zM288 440c13.25 0 24-10.75 24-24s-10.75-24-24-24s-24 10.75-24 24S274.7 440 288 440zM288 344c13.25 0 24-10.75 24-24S301.3 296 288 296S264 306.7 264 320S274.7 344 288 344zM288 248c13.25 0 24-10.75 24-24S301.3 200 288 200S264 210.7 264 224S274.7 248 288 248zM192 344c13.25 0 24-10.75 24-24S205.3 296 192 296S168 306.7 168 320S178.7 344 192 344zM192 248c13.25 0 24-10.75 24-24S205.3 200 192 200S168 210.7 168 224S178.7 248 192 248zM96 344c13.25 0 24-10.75 24-24S109.3 296 96 296S72 306.7 72 320S82.75 344 96 344zM96 248c13.25 0 24-10.75 24-24S109.3 200 96 200S72 210.7 72 224S82.75 248 96 248z"/></svg>
@@ -1276,6 +1281,180 @@
             </div>
         </div>
     </section>
+    <section class="comments">
+            <div class="container">
+                <div class="parent-comment">
+                    <div class="text-comment col-6">
+                        <div class="parent-text-title">
+                            <svg class="svg-title-comment" width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="10" cy="24" r="10" fill="currentColor"></circle>
+                                <circle cx="30" cy="13" r="7" fill="currentColor" fill-opacity="0.4"></circle>
+                                <circle cx="15" cy="4" r="4" fill="currentColor" fill-opacity="0.7"></circle>
+                            </svg>
+                            <h2>در مورد ایران تکنولوژی چه میشنویم؟</h2>
+                        </div>
+                        <p>
+                            این‌ها، بخش خیلی کوچکی از نظراتی هستند که افراد مختلف
+                        </p>
+                        <p>
+                            در مورد ایران تکنولوژی دارند
+                        </p>
+                        <svg class="svg-comment-text  ml-16 transform sm:mt-0 mt-6 sm:rotate-0 rotate-215"  viewBox="0 0 81 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M29.1967 14.3986C25.5868 13.9847 22.0069 13.342 18.4784 12.4745C16.792 12.0466 12.2026 11.5965 11.3659 10.0623C14.4789 9.24078 17.802 9.66713 20.9105 8.43793C22.2549 7.90469 24.0976 7.15477 24.3908 5.52325C24.8311 3.10397 22.5994 3.77298 21.0294 3.94254C17.6692 4.3178 14.1955 4.26364 10.8129 4.37265C8.21636 4.45288 2.1991 3.36004 0.75924 6.3001C-0.680619 9.24016 3.70799 12.3632 5.54259 14.087C8.50795 16.9111 11.4369 19.7705 14.422 22.5651C15.2426 23.339 16.7726 25.1362 18.1266 24.8437C19.9916 24.4238 19.3821 22.6707 18.7377 21.448C18.3268 20.6539 12.3485 13.2275 12.3318 13.2334C12.9125 13.059 16.0756 14.503 16.5971 14.6724C18.7851 15.3399 21.0082 15.8863 23.2564 16.3091C29.1409 17.505 35.2798 18.8366 41.3307 18.5846C44.1562 18.4613 46.2644 17.4415 48.7901 16.4024C51.1811 15.4181 53.2468 16.8916 55.7475 17.5098C60.9531 18.7403 66.3814 18.6725 71.5546 17.3125C75.0607 16.4128 83.0583 13.2526 79.9898 8.14036C79.1913 6.81046 77.6537 5.8984 77.713 7.71002C77.7492 8.94395 78.6421 9.14417 78.0975 10.5525C77.6207 11.4769 76.8129 12.1875 75.8353 12.5428C71.3525 14.7964 64.9792 15.3272 60.1138 14.7865C58.2671 14.554 54.5964 13.8444 53.1131 12.6278C51.7956 11.5519 52.7224 10.088 52.4922 8.17502C51.8776 3.22806 46.3507 -1.37941 41.1423 0.48748C33.6157 3.20407 42.2988 11.4021 45.8298 13.4113C42.1694 16.6785 33.3853 14.926 29.1967 14.3986ZM44.3831 4.04077C48.1118 4.66985 49.1864 7.04037 48.6529 10.4538C47.4697 9.70609 38.6072 3.3136 44.3831 4.04077C45.0235 4.15333 43.8802 3.97745 44.3831 4.04077Z" fill=""></path>
+                        </svg>
+                    </div>
+                    <div class="parent-swiper col-6">
+                        <swiper-container class="mySwiper"  effect="cards" grab-cursor="true" navigation="true" pagination="false">
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها و نکات سفر شما به من در انتخاب‌ها و برنامه‌ریزی کمک بزرگی کردند. باز هم از شما متشکرم و مطمئناً در سفرهای آتی از خدماتتان استفاده خواهم کرد.
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="item-comment">
+                                    <div class="comment-user">
+                                        <p>
+                                            تشکر از وب سایت شما برای ارائه‌ی تجربه‌ای بی‌نظیر. با دسترسی آسان به اطلاعات جاذبه‌ها، تورها و رستوران‌های محلی، سفرم را به یک ماجراجویی واقعی تبدیل کردید. همچنین، راهنمایی‌ها
+                                        </p>
+                                    </div>
+                                    <div class="parent-user-company">
+                                        <img src="{{ (asset('pic/index.jpg') ) }}" alt="user-img">
+                                        <div class="name-company">
+                                            <h4>حامد عبدالملکی</h4>
+                                            <span>آژانس گردشگری سیتی پرواز</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                        </swiper-container>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     @endif
     @if($result['customer']->honors == 1)
     <div class="title">
@@ -1392,6 +1571,9 @@
         </div>
     </section>
     @endif
+    <section class="iran-tech">
+        <div class="container"></div>
+    </section>
     <footer class="footer-expert">
         <div class="container">
             <div class="parent-text-footer">
@@ -1491,7 +1673,9 @@
 <script src="{{ (asset('js/main/jquery-3.4.1.min.js')) }}"></script>
 <script src="{{ (asset('js/main/bootstrap.min.js')) }}"></script>
 <script src="{{ (asset('js/main/owl.carousel.min.js')) }}"></script>
-<script src="{{ (asset('js/main/chart.min.js')) }}"></script>
+<script src="{{ (asset('js/main/swiper.js')) }}"></script>
+{{--<script src="{{ (asset('js/main/swiper-bundle.js')) }}"></script>--}}
+<script src="{{ (asset('js/main/swiper-sheet.js')) }}"></script>
 <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
 <script src="{{ (asset('js/main/script.js')) }}"></script>
 
