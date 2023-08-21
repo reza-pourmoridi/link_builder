@@ -1675,7 +1675,7 @@ html {
     border-radius: 20px;
 }
 .skill__outer-bar {
-    background: #f7f7f7;
+    background: #f0f0f0;
     display: flex;
     justify-content: left;
 }
@@ -1700,7 +1700,48 @@ html {
 .skill__inner-bar--70{
     width: 70%;
 }
-
+.parent-iran-tech{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 40px;
+}
+.item-iran-tech{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    transition: all ease .3s;
+}
+.item-iran-tech:hover{
+    transform: translateY(-10px);
+}
+.iran-tech{
+    padding: 0 0 50px;
+}
+.parent-svg-iran-tech{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.parent-svg-iran-tech svg{
+    width: 40px;
+    fill: #fff;
+}
+.iran-tech-telegram{
+    background: #039be5;
+    color: #fff;
+}
+.iran-tech-instagram{
+    color: #fff;
+    background: radial-gradient(circle at 30% 200%, #eddb23 0%, #f1e249 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.item-iran-tech span{
+    font-size: 22px;
+}
 .active-animat{
     -webkit-animation: fillBar 1s forwards;
     animation: fillBar 5s forwards;
@@ -1848,6 +1889,27 @@ swiper-slide {
     .parent-img-baner-off {
         /*! height: 150px; */
     }
+    .parent-iran-tech{
+        grid-column-gap: 20px;
+    }
+    .item-iran-tech span{
+        font-size: 18px;
+    }
+    .parent-swiper{
+        padding-left: 30px;
+    }
+    .text-comment{
+        padding-left: 0;
+    }
+    .svg-comment-text{
+        display: none;
+    }
+    .parent-text-title h2{
+        font-size: 24px;
+    }
+    .comment-user p{
+        font-size: 16px;
+    }
     .profile-desktop{
         grid-template-columns: repeat(1, 1fr);
     }
@@ -1898,6 +1960,30 @@ swiper-slide {
     main{
         width: 100%;
     }
+    .parent-text-title h2{
+        font-size: 16px;
+    }
+    .text-comment p{
+        margin-right: 0;
+        font-size: 14px;
+    }
+    .text-comment{
+        margin-bottom: 30px;
+    }
+    .comment-user p{
+        font-size: 16px;
+        line-height: 28px;
+        text-align: right;
+    }
+    .name-company h4{
+        font-size: 16px;
+    }
+    .name-company span{
+        font-size: 14px;
+    }
+    .svg-comment-text{
+        display: none;
+    }
     .owl-advantages .owl-dots{
         bottom: 26px;
     }
@@ -1918,6 +2004,10 @@ swiper-slide {
 @media (max-width: 576px) {
     .expert,.tab-box,.suppliers,.advantages,.demo,.work-samples,.price-list,.statistics,.direction-mobile,.questions,.honors{
         padding: 0 0 60px;
+    }
+    .parent-iran-tech{
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 20px;
     }
     .social-expert a svg{
         width: 25px;
@@ -2168,6 +2258,32 @@ swiper-slide {
     }
     .demo p{
         font-size: 14px;
+    }
+    .comment-user p{
+        font-size: 14px !important;
+        text-align: justify;
+    }
+    .text-comment{
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 769px) {
+    .comment-user p{
+        font-size: 15px;
+        line-height: 28px;
+    }
+    .item-comment{
+        gap: 26px;
+    }
+    .text-comment{
+        padding-left: 50px;
+    }
+    .item-iran-tech{
+        padding: 10px;
+    }
+    .item-iran-tech span{
+        font-size: 15px;
     }
 }
 
