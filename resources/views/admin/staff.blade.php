@@ -103,7 +103,6 @@
                 @endforeach
             </table>
         </form>
-
     </div>
     <div class="main-dive">
         <form id="work_form" action="#work_form" enctype="multipart/form-data" method="post"  >
@@ -265,5 +264,58 @@
         </table>
 
     </div>
+
+    <div class="main-dive">
+        <form id="comment_form" action="#comment_form"  enctype="multipart/form-data" method="post"  >
+            @csrf
+            <h1>نظرات مشتری ها</h1>
+            <div>
+                <lable>عنوان:</lable>
+                <input type="text"  value=""  name="comment_title" id="">
+            </div>
+            <div>
+                <lable>نام مشتری:</lable>
+                <input type="text"  value=""  name="comment_name" id="">
+            </div>
+            <div>
+                <lable>آژانس:</lable>
+                <input type="text"  value=""  name="comment_agency" id="">
+            </div>
+            <div>
+                <lable>نظر:</lable>
+                <textarea  value="" name="comment_c" id=""></textarea>
+                <br>
+            </div>
+            <div>
+                <lable>عکس مشتری</lable>
+                <input class="images-input" id="comment_pic" accept="image/*" type="file" name="comment_pic" value="">
+            </div>
+            <input value="ذخیره اطلاعات" type="submit">
+        </form>
+        <form method="POST" >
+            @csrf
+            <table>
+                <tr>
+                    <th>عنوان</th>
+                    <th>نام مشتری</th>
+                    <th>آژانس</th>
+                    <th>نظر</th>
+                    <th>عکس</th>
+                    <th>حذف</th>
+                </tr>
+                @foreach($result['comment'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['name']}}</td>
+                        <td>{{$item['agency']}}</td>
+                        <td>{{$item['comment']}}</td>
+                        <td><img src="{{asset('images/'.$item['pic'])}}"></td>
+                        <td><a  href="staff/comment/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                @endforeach
+            </table>
+        </form>
+    </div>
+
 </main>
 @endsection

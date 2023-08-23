@@ -210,6 +210,27 @@
                     </tbody>
                 </table>
             </div>
+            <div class="comment">
+                <h4>نظرات مشتری ها</h4>
+                <table>
+                    <tr>
+                        <th>عنوان</th>
+                        <th>نام مشتری</th>
+                        <th>آژانس</th>
+                        <th>انتخاب همه
+                            <input onclick="selectAlloptions(this,'comment_check[]');" type="checkbox"  id="faq_all"></th>
+                    </tr>
+                    @foreach($result['comment'] as $item)
+                        <tr>
+                            <td>{{$item['title']}}</td>
+                            <td>{{$item['name']}}</td>
+                            <td>{{$item['agency']}}</td>
+                            <td><input  type="checkbox" id="" name="comment_check[]" value="{{$item['id']}}"></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+
             <br>
         </section>
         <div class="submit-form">

@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function () {
 
 
     Route::get('/staff/demo/{staffId}', 'StaffController@destroyDemo')->name('staff.demo.destroy');
+    Route::get('/staff/comment/{staffId}', 'StaffController@destroyComment')->name('staff.comment.destroy');
     Route::get('/staff/programs/{programsId}', 'StaffController@destroyPrograms')->name('staff.programs.destroy');
     Route::get('/staff/pricesModel/{pricesModelId}', 'StaffController@destroyPricesModel')->name('staff.pricesModel.destroy');
     Route::get('/staff/works/{worksId}', 'StaffController@destroyWorks')->name('staff.works.destroy');

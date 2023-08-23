@@ -10,6 +10,7 @@ use App\works;
 use App\faq;
 use App\advertisement;
 use App\demo;
+use App\comment;
 use App\LoginAdmin;
 use App\site_types;
 use App\accountant;
@@ -35,6 +36,7 @@ class StaffController extends Controller
         $advertisement = advertisement::all();
 
         $demo = demo::all();
+        $comment = comment::all();
         $programs = programs::all();
         $pricesModel = pricesModel::all();
         $pricesModel = Helpers::change_site_types($pricesModel,$types);
@@ -45,6 +47,7 @@ class StaffController extends Controller
             'faq'=>$faq ,
             'adds'=>$advertisement ,
             'demo'=>$demo ,
+            'comment'=>$comment ,
             'programs'=>$programs ,
             'pricesModel'=>$pricesModel ,
             'accountants'=>$accountant ,
@@ -73,6 +76,9 @@ class StaffController extends Controller
         }
         if ($request->get('demo_title')){
             $this->store_demo($request);
+        }
+        if ($request->get('comment_title')){
+            $this->store_comment($request);
         }
         if ($request->get('adds_title')){
             $this->store_adds($request);
@@ -133,6 +139,11 @@ class StaffController extends Controller
     public function destroyDemo(int $id)
     {
         demo::destroy($id);
+        return redirect('admin/staff')->with('success', 'item deleted!');
+    }
+    public function destroyComment(int $id)
+    {
+        comment::destroy($id);
         return redirect('admin/staff')->with('success', 'item deleted!');
     }
 
@@ -209,6 +220,28 @@ class StaffController extends Controller
         $pricesModel->logo = $imageName;
         $pricesModel->title = $request->get('demo_title');
         $pricesModel->link = $request->get('demo_link');
+
+        $pricesModel->save();
+
+    }
+    public function store_comment($request)
+    {
+        $request-> validate([
+            'comment_title'=>'required',
+            'comment_name'=>'required',
+            'comment_agency'=>'required',
+            'comment_c'=>'required',
+            'comment_pic'=>'required',
+        ]);
+
+        $pricesModel = new comment();
+
+        $imageName = $this->insert_pic('comment_pic');
+        $pricesModel->pic = $imageName;
+        $pricesModel->title = $request->get('comment_title');
+        $pricesModel->name = $request->get('comment_name');
+        $pricesModel->agency = $request->get('comment_agency');
+        $pricesModel->comment = $request->get('comment_c');
 
         $pricesModel->save();
 

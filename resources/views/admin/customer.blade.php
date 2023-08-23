@@ -222,6 +222,28 @@
                 </tbody>
             </table>
         </div>
+        <div class="comment">
+            <h4>نظرات مشتری ها</h4>
+            <table>
+                <tr>
+                    <th>عنوان</th>
+                    <th>نام مشتری</th>
+                    <th>آژانس</th>
+                    <th>انتخاب همه
+                        <input onclick="selectAlloptions(this,'comment_check[]');" type="checkbox"  id="faq_all"></th>
+                </tr>
+                @foreach($result['comment'] as $item)
+                    <tr>
+                        <td>{{$item['title']}}</td>
+                        <td>{{$item['name']}}</td>
+                        <td>{{$item['agency']}}</td>
+                        <td><input  @if(in_array($item['id'],$result['chosen_comment'])) checked @endif type="checkbox" id="" name="comment_check[]" value="{{$item['id']}}"></td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+
+
         <a target="_blank" href="/customer/{{ $result['customer']->slug }}" type="submit">پیش نمایش</a>
         <button type="submit">Save Changes</button>
     </form>

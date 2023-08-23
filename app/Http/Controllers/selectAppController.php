@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\accountant;
 use App\demo;
+use App\comment;
 use App\faq;
 use App\advertisement;
 use App\Helpers;
@@ -34,6 +35,7 @@ class selectAppController extends Controller
 
 
         $demo = demo::all();
+        $comment = comment::all();
         $programs = programs::all();
         $pricesModel = pricesModel::all();
         $staff = staff::all();
@@ -46,6 +48,7 @@ class selectAppController extends Controller
             'faq'=>$faq ,
             'adds'=>$adds ,
             'demo'=>$demo ,
+            'comment'=>$comment ,
             'programs'=>$programs ,
             'pricesModel'=>$pricesModel ,
             'staff'=>$staff,
@@ -131,6 +134,13 @@ class selectAppController extends Controller
             $chosen_item->items_id = json_encode($request->get('demo_check'));
             $chosen_item->save();
         }
+        if ($request->get('comment_check')){
+            $chosen_item = new chosen_item();
+            $chosen_item->item_model = 'comment';
+            $chosen_item->customer_id = $customerModel->id;
+            $chosen_item->items_id = json_encode($request->get('comment_check'));
+            $chosen_item->save();
+        }
         if ($request->get('faq_check')){
             $chosen_item = new chosen_item();
             $chosen_item->item_model = 'faq';
@@ -196,5 +206,5 @@ class selectAppController extends Controller
         $record->delete();
         return redirect('/admin/customers');
     }
-    
+
 }

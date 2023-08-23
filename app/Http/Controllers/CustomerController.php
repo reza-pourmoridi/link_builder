@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\accountant;
 use App\demo;
+use App\comment;
 use App\faq;
 use App\advertisement;
 use App\Helpers;
@@ -31,6 +32,7 @@ class CustomerController extends Controller
         $advertisement = advertisement::all();
 
         $demo = demo::all();
+        $comment = comment::all();
         $programs = programs::all();
         $pricesModel = pricesModel::all();
         $accountant = accountant::all();
@@ -41,6 +43,7 @@ class CustomerController extends Controller
         $chosen_programs = $this->chosen_item('programs' , $customer->id);
         $chosen_pricesModel = $this->chosen_item('pricesModel' , $customer->id);
         $chosen_demo = $this->chosen_item('demo' , $customer->id);
+        $chosen_comment = $this->chosen_item('comment' , $customer->id);
         $chosen_accountants = $this->chosen_item('accountants' , $customer->id);
         $chosen_faq = $this->chosen_item('faq' , $customer->id);
         $chosen_adds = $this->chosen_item('advertisement' , $customer->id);
@@ -59,6 +62,8 @@ class CustomerController extends Controller
             'chosen_adds'=>$chosen_adds ,
             'demo'=>$demo ,
             'chosen_demo'=>$chosen_demo ,
+            'comment'=>$comment ,
+            'chosen_comment'=>$chosen_comment ,
             'programs'=>$programs ,
             'chosen_programs'=>  $chosen_programs,
             'pricesModel'=>$pricesModel ,
@@ -124,6 +129,7 @@ class CustomerController extends Controller
             $this->choose_item($id,'pricesModel', $request->get('price_check'));
             $this->choose_item($id,'works', $request->get('work_check'));
             $this->choose_item($id,'demo', $request->get('demo_check'));
+            $this->choose_item($id,'comment', $request->get('comment_check'));
             $this->choose_item($id,'accountants', $request->get('accountants_check'));
             $this->choose_item($id,'faq', $request->get('faq_check'));
             $this->choose_item($id,'advertisement', $request->get('adds_check'));
