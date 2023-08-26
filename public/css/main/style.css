@@ -148,7 +148,7 @@ main{
 }
 .parent-img-profile{
      width: 120px;
-     height: 120px;
+     /*height: 120px;*/
     background: #f5f6f6;
     border-radius: 16px;
     overflow: hidden;
