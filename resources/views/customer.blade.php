@@ -1305,17 +1305,22 @@
                                 @if(in_array($item['id'],$result['chosen_comment']))
                                    <swiper-slide>
                                         <div class="item-comment">
+                                            <div class="parent-user-company">
+                                                <div class="">
+                                                    <h5>- پشتیبانی قوی</h5>
+                                                </div>
+                                                <div class="">
+                                                    <div class="name-company">
+                                                        <h4>{{$item['name']}}</h4>
+                                                        <span>{{$item['agency']}}</span>
+                                                    </div>
+                                                    <img src="{{ (asset('images/'.$item['pic']) ) }}" alt="user-img">
+                                                </div>
+                                            </div>
                                             <div class="comment-user">
                                                 <p>
                                                     {{$item['comment']}}
                                                 </p>
-                                            </div>
-                                            <div class="parent-user-company">
-                                                <img src="{{ (asset('images/'.$item['pic']) ) }}" alt="user-img">
-                                                <div class="name-company">
-                                                    <h4>{{$item['name']}}</h4>
-                                                    <span>{{$item['agency']}}</span>
-                                                </div>
                                             </div>
                                         </div>
                                     </swiper-slide>

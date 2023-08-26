@@ -210,7 +210,7 @@ main{
     font-size: 14px;
 }
 .baner-off{
-    padding: 0 0 50px;
+    padding: 0 0 70px;
 }
 .parent-expert{
     background: #fff;
@@ -1810,19 +1810,29 @@ swiper-slide {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: auto;
+    justify-content: space-between;
+    width: 100%;
+}
+.parent-user-company div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.parent-user-company h5{
+    color: green;
+    margin-bottom: 0;
 }
 .parent-user-company img{
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
     border: 4px solid #f7f8f9;
 }
 .name-company{
-    display: flex;
+    display: flex !important;
     flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
+    gap: 4px !important;
+    align-items: center !important;
 }
 .name-company h4{
     color: #344256;
@@ -2266,12 +2276,18 @@ swiper-slide {
     .text-comment{
         padding-left: 0 !important;
     }
+    .parent-user-company h5{
+        display: none;
+    }
 }
 
 @media (max-width: 769px) {
     .comment-user p{
         font-size: 15px;
         line-height: 28px;
+    }
+    .parent-user-company h5{
+        font-size: 14px;
     }
     .item-comment{
         gap: 26px;
