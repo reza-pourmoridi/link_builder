@@ -1712,7 +1712,7 @@ html {
     border-radius: 20px;
 }
 .skill__outer-bar {
-    background: #f0f0f0;
+    background: #ececec;
     display: flex;
     justify-content: left;
 }
