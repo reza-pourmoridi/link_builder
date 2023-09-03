@@ -1307,7 +1307,7 @@
                                         <div class="item-comment">
                                             <div class="parent-user-company">
                                                 <div class="">
-                                                    <h5>- پشتیبانی قوی</h5>
+                                                    <h5>{{$item['title']}}</h5>
                                                 </div>
                                                 <div class="">
                                                     <div class="name-company">
