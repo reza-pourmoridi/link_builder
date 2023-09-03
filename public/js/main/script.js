@@ -95,6 +95,7 @@ $('.owl-suppliers').owlCarousel({
     }
 });
 
+
 $('.owl-work-samples').owlCarousel({
     rtl:true,
     loop:true,
