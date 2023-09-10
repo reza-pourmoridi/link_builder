@@ -57,6 +57,7 @@ class CreateStaffTable extends Migration
             $table->string('title');
             $table->string('link');
             $table->string('pic');
+            $table->string('pic_m');
         });
         Schema::create('login_admins', function (Blueprint $table) {
             $table->id();

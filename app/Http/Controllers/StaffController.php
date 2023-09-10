@@ -330,22 +330,27 @@ class StaffController extends Controller
             'adds_title'=>'required',
             'adds_link'=>'required',
             'adds_pic'=>'required',
+            'adds_pic_m'=>'required',
         ]);
 
         $addsModel = new advertisement();
 
         $imageName = $this->insert_pic('adds_pic');
+        $imageName_m = $this->insert_pic('adds_pic_m', 'mobile');
+
+
         $addsModel->pic = $imageName;
+        $addsModel->pic_m = $imageName_m;
         $addsModel->title = $request->get('adds_title');
         $addsModel->link = $request->get('adds_link');
 
         $addsModel->save();
     }
 
-    public function insert_pic( $field )
+    public function insert_pic( $field , $additional_discription = 'm' )
     {
         global $request;
-        $imageName = time().'.'.$request->$field->extension();
+        $imageName = $additional_discription . '-' . time().'.'.$request->$field->extension();
         $request->$field->move(public_path('images'), $imageName);
         return $imageName;
     }

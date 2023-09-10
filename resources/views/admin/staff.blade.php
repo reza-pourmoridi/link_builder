@@ -12,7 +12,11 @@
             <input type="text" value="" name="adds_link" id="">
             <div>
                 <lable>بنر</lable>
-                <input class="images-input" id="adds_pic" accept="image/*" type="file" name="adds_pic" value="">
+                <input class="images-input" required id="adds_pic" accept="image/*" type="file" name="adds_pic" value="">
+            </div>
+            <div>
+                <lable>بنر موبایل</lable>
+                <input class="images-input" required id="adds_pic_m" accept="image/*" type="file" name="adds_pic_m" value="">
             </div>
             <br>
             <input value="ذخیره اطلاعات" type="submit">
@@ -29,6 +33,7 @@
                     <td>{{$item['title']}}</td>
                     <td>{{$item['link']}}</td>
                     <td><img src="{{asset('images/'.$item['pic'])}}"></td>
+                    <td><img src="{{asset('images/'.$item['pic_m'])}}"></td>
                     <td><a  href="staff/adds/{{$item['id']}}" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach

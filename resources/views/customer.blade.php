@@ -310,7 +310,7 @@
                             <!-- تصویر برای دسکتاپ -->
                             <source media="(min-width: 769px)" srcset="{{asset('images/'.$item['pic'])}}" alt="{{$item['title']}}">
                             <!-- تصویر برای موبایل -->
-                            <img class="mobile-image" src="{{asset('pic/bannermobile-min.jpg')}}" alt="تصویر موبایل">
+                            <img class="mobile-image" srcset="{{asset('images/'.$item['pic_m'])}}" alt="{{$item['title']}}">
                         </picture>
                     </div>
                 </div>
