@@ -80,54 +80,61 @@ main{
      height: 100%;
     /*! object-fit: contain; */
 }
-.parent-price-list>.price-list-link:nth-child(1){
-    background: #d34b7d;
-}
-.parent-price-list>.price-list-link:nth-child(1)>.bg-svg-background svg{
-    fill: #ef497b;
-}
-.parent-price-list>.price-list-link:nth-child(2){
-    background: #389f9c;
-}
-.parent-price-list>.price-list-link:nth-child(2)>.bg-svg-background svg{
-    fill: #31bdba;
-}
-.parent-price-list>.price-list-link:nth-child(3){
-    background: #3b9740;
-}
-.parent-price-list>.price-list-link:nth-child(3)>.bg-svg-background svg{
-    fill: #45b64a;
-}
-.parent-price-list>.price-list-link:nth-child(4){
-    background: #dac245;
-}
-.parent-price-list>.price-list-link:nth-child(4)>.bg-svg-background svg{
-    fill: #efcd49;
-}
-.parent-price-list>.price-list-link:nth-child(5){
-    background: #e83e3e;
-}
-.parent-price-list>.price-list-link:nth-child(5)>.bg-svg-background svg{
-    fill: #fd4949;
-}
-.parent-price-list>.price-list-link:nth-child(6){
-    background: #8b72be;
-}
-.parent-price-list>.price-list-link:nth-child(6)>.bg-svg-background svg{
-    fill: #b7a9d4;
-}
-.parent-price-list>.price-list-link:nth-child(7){
-    background: #95020c;
-}
-.parent-price-list>.price-list-link:nth-child(7)>.bg-svg-background svg{
-    fill: #b90b04;
-}
-.parent-price-list>.price-list-link:nth-child(8){
-    background: #353e47;
-}
-.parent-price-list>.price-list-link:nth-child(8)>.bg-svg-background svg{
-    fill: #5a6b7b;
-}
+
+
+
+/*.parent-price-list>.price-list-link:nth-child(1){*/
+/*    background: #d34b7d;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(1)>.bg-svg-background svg{*/
+/*    fill: #ef497b;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(2){*/
+/*    background: #389f9c;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(2)>.bg-svg-background svg{*/
+/*    fill: #31bdba;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(3){*/
+/*    background: #3b9740;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(3)>.bg-svg-background svg{*/
+/*    fill: #45b64a;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(4){*/
+/*    background: #dac245;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(4)>.bg-svg-background svg{*/
+/*    fill: #efcd49;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(5){*/
+/*    background: #e83e3e;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(5)>.bg-svg-background svg{*/
+/*    fill: #fd4949;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(6){*/
+/*    background: #8b72be;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(6)>.bg-svg-background svg{*/
+/*    fill: #b7a9d4;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(7){*/
+/*    background: #95020c;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(7)>.bg-svg-background svg{*/
+/*    fill: #b90b04;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(8){*/
+/*    background: #353e47;*/
+/*}*/
+/*.parent-price-list>.price-list-link:nth-child(8)>.bg-svg-background svg{*/
+/*    fill: #5a6b7b;*/
+/*}*/
+
+
+
+
 .name-profile{
     display: flex;
     align-items: center;
@@ -738,6 +745,11 @@ main{
      text-decoration: none;
      align-items: center;
      width: 100%;
+    background: #ffd700;
+    border: 4px solid #333;
+    overflow: hidden;
+    background: rgb(225,143,17);
+    background: linear-gradient(135deg, rgba(225,143,17,1) 0%, rgba(229,194,42,1) 64%, rgba(237,226,136,1) 100%);
 }
 .bg-red{
     background: #d34b7d;
@@ -757,6 +769,8 @@ main{
     width: 100%;
     border-radius: 0 0 16px 16px;
     z-index: 1;
+    fill: #FFDE2B;
+    display: none;
 }
 .bg-red2{
     fill: #ef497b;
@@ -779,17 +793,18 @@ main{
     z-index: 2;
     /*! width: 100%; */
     height: 100%;
+    gap: 5px;
 }
 .text-price-list h3{
     font-size: 16px;
-    color: #fff;
-    margin-bottom: 4px;
+    color: #222;
     font-family: 'iranbold';
+    order: 2;
     /*! margin-top: 4px; */
 }
 .text-price-list span{
-    color: #fff;
-    font-size: 14px;
+    color: #222;
+    font-size: 18px;
 }
 .bg-blue{
     background: #389f9c;
